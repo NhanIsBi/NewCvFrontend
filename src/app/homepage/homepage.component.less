@@ -1,0 +1,55 @@
+@import "../shared/styles/ehiring.less";
+
+.page {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  height: 1000px;
+  &-header {
+    background-color: aqua;
+    height: 50px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  &-content {
+    display: flex;
+    flex-direction: column;
+    .logo {
+      // border: 2px solid rgb(116, 204, 116);
+      // border-radius: 5px;
+      display: flex;
+      flex-direction: row;
+      flex: 0 1 calc(100% / 10);
+      &-description {
+        font-family: Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;
+        align-self: center;
+      }
+    }
+
+    .info {
+      background: rgba(0, 0, 0, 0.4);
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      flex: 0 1 calc(100% / 10);
+
+      // gap: 100px;
+      &-login {
+        color: @dark;
+        .text-style-bold(7);
+        background: transparent;
+        border: 2px solid transparent;
+        padding: 20px 8px;
+        width: auto;
+      }
+      &-line {
+        width: 2px;
+        height: 80%;
+        margin: auto 0;
+        background: @mid;
+      }
+    }
+  }
+}
