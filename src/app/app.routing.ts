@@ -11,38 +11,39 @@ const routes: Routes = [];
 @NgModule({
   imports: [
     RouterModule.forRoot([
-      {
-        path: '',
-        redirectTo: 'home',
-        pathMatch: 'full',
-      },
-      {
-        path: 'home',
-        component: AppComponent,
-      },
-      {
-        path: 'login',
-        component: LoginComponent,
-        // children: [
-        //   {
-        //     path: 'resign',
-        //     component: ResignComponent,
-        //   },
-        // ],
-      },
-      {
-        path: 'resign',
-        component: ResignComponent,
-        // children: [
-        //   {
-        //     path: 'home',
-        //     component: ResignComponent,
-        //   },
-        // ],
-      },
+      // {
+      //   path: '',
+      //   redirectTo: 'home',
+      //   pathMatch: 'full',
+      // },
+      // {
+      //   path: 'home',
+      //   component: AppComponent,
+      // },
+      // {
+      //   path: 'login',
+      //   component: LoginComponent,
+      //   // children: [
+      //   //   {
+      //   //     path: 'resign',
+      //   //     component: ResignComponent,
+      //   //   },
+      //   // ],
+      // },
+      // {
+      //   path: 'resign',
+      //   component: ResignComponent,
+      //   // children: [
+      //   //   {
+      //   //     path: 'home',
+      //   //     component: ResignComponent,
+      //   //   },
+      //   // ],
+      // },
       {
         path: 'homepage',
-        component: HomepageComponent,
+        loadChildren: () =>
+          import('./homepage/homepage.module').then((m) => m.HomepageModule),
         // children: [
         //   {
         //     path: 'homepage',

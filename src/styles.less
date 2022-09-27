@@ -1,4 +1,129 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~ng-zorro-antd/ng-zorro-antd.css";
+@import "../src/app/shared/styles/ehiring.less";
 body {
   margin: 0;
+}
+
+.customPagination {
+  .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+    border: 1px solid @primary-1;
+    border-radius: 8px;
+    &:hover {
+      border-color: @primary-2;
+      background-color: @secondary-5;
+      color: @primary-2;
+    }
+  }
+  .select-special.ant-select:not(.ant-select-customize-input)
+    .ant-select-selector {
+    border: none;
+    border-radius: 0px;
+    border-bottom: 1px solid @light;
+    &:hover {
+      color: @primary-1;
+      background-color: white;
+    }
+  }
+  .select-special.ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input)
+    .ant-select-selector {
+    border-color: @light;
+    box-shadow: none;
+  }
+  .ant-select-item-option-active:not(.ant-select-item-option-disabled) {
+    background-color: @secondary-5;
+  }
+  .ant-select-dropdown {
+    border-radius: 8px;
+    border: 1px solid @primary-1;
+    padding: 0;
+    & > div {
+      height: 100%;
+    }
+  }
+  .ant-select-item {
+    border-bottom: 1px solid @light;
+  }
+  &.ant-pagination-prev.ant-pagination-disabled,
+  &.ant-pagination-next.ant-pagination-disabled,
+  &.ant-pagination-simple .ant-pagination-prev,
+  &.ant-pagination-simple .ant-pagination-next,
+  &.ant-pagination-simple .ant-pagination-simple-pager {
+    height: 2rem;
+  }
+  &.ant-pagination-simple .ant-pagination-prev .ant-pagination-item-link,
+  &.ant-pagination-simple .ant-pagination-next .ant-pagination-item-link {
+    height: 1.875rem;
+  }
+  &.ant-pagination-simple .ant-pagination-simple-pager input {
+    border-radius: 8px;
+  }
+  .ant-pagination-prev .ant-pagination-item-link,
+  .ant-pagination-next .ant-pagination-item-link {
+    background-color: inherit;
+    border: none;
+    border-radius: 8px;
+    color: inherit;
+  }
+  .ant-pagination-item-active {
+    background-color: @secondary-5;
+    border: @primary-2 solid 1px;
+    border-radius: 8px;
+    a {
+      color: @primary-2;
+      display: inline;
+    }
+    &:hover {
+      background-color: @secondary-5;
+      border: @primary-2 solid 1px;
+      border-radius: 8px;
+      a {
+        color: @primary-2;
+      }
+    }
+  }
+  .ant-table-pagination.ant-pagination {
+    justify-content: start;
+    bottom: 10px;
+    width: 100%;
+    position: fixed;
+  }
+
+  .ant-pagination-prev,
+  .ant-pagination-next {
+    border: @primary-1 solid 1px;
+    background-color: white;
+    border-radius: 8px;
+    color: @primary-1;
+    &:hover {
+      background-color: @secondary-5;
+      border: @primary-2 solid 1px;
+      border-radius: 8px;
+      color: @primary-2;
+    }
+  }
+  .ant-pagination-prev.ant-pagination-disabled,
+  .ant-pagination-next.ant-pagination-disabled {
+    border: @mid solid 1px;
+    background-color: @light;
+    border-radius: 8px;
+    color: @mid;
+  }
+  .ant-pagination-item:not(.ant-pagination-item-active) {
+    background-color: white;
+    border: @primary-1 solid 1px;
+    border-radius: 8px;
+    a {
+      color: @primary-1;
+      display: inline;
+    }
+    &:hover {
+      background-color: @secondary-5;
+      border: @primary-2 solid 1px;
+      border-radius: 8px;
+      a {
+        color: @primary-2;
+      }
+    }
+  }
 }

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ResignComponent } from './resign/resign.component';
 import { LoginComponent } from './login/login.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { NzPaginationModule } from 'ng-zorro-antd/pagination';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,7 @@ import { HomepageComponent } from './homepage/homepage.component';
     LoginComponent,
     HomepageComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, NzPaginationModule],
   providers: [],
   bootstrap: [AppComponent],
 })
