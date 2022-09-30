@@ -1,0 +1,15 @@
+<a nz-dropdown [nzDropdownMenu]="menu">
+  <ng-container [ngTemplateOutlet]="temRef"></ng-container>
+  <span nz-icon nzType="down"></span>
+</a>
+<nz-dropdown-menu #menu="nzDropdownMenu">
+  <ul nz-menu>
+    <li
+      nz-menu-item
+      (click)="onClick(idx)"
+      *ngFor="let i of data; index as idx"
+    >
+      {{ i }}
+    </li>
+  </ul>
+</nz-dropdown-menu>
