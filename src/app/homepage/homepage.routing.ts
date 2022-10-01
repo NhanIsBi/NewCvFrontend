@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CompetitionComponent } from './competition/competition.component';
 import { EventComponent } from './event/event.component';
 import { HomepageComponent } from './homepage.component';
+import { NewsScholarshipComponent } from './news-scholarship/news-scholarship.component';
 import { PageComponent } from './page/page.component';
 import { ScholarshipComponent } from './scholarship/scholarship.component';
 
@@ -20,6 +21,10 @@ import { ScholarshipComponent } from './scholarship/scholarship.component';
           {
             path: 'scholarship',
             component: ScholarshipComponent,
+          },
+          {
+            path: 'news-scholarship',
+            component: NewsScholarshipComponent,
           },
           {
             path: 'event',

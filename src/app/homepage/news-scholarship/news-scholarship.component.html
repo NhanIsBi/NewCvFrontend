@@ -1,0 +1,67 @@
+<div class="page">
+  <div class="page-body">
+    <div class="left">
+      <!-- <div class="left-title2">Học bổng</div> -->
+      <div class="left-title3">
+        Học bổng toàn phần, bán phần của chính phủ, các tổ chức, công ty và
+        trường đại học trong nước và quốc tế hấp dẫn
+      </div>
+      <div class="left-check">
+        <div class="filter">
+          <div class="filter-search">
+            <input nz-input placeholder="Tìm kiếm theo từ khoá" class="input" />
+          </div>
+          <div class="filter-dropdown">
+            <div class="setting">
+              <ng-template #title>
+                <span class="setting-title">
+                  {{ scholarship }}</span
+                ></ng-template
+              >
+              <ehiring-dropdown
+                [temRef]="title"
+                [data]="dataScholarship"
+                (selectionChange)="onSelectionChange($event)"
+              ></ehiring-dropdown>
+            </div>
+
+            <div class="setting">
+              <ng-template #title1>
+                <span class="setting-title"> {{ level }}</span></ng-template
+              >
+              <ehiring-dropdown
+                [temRef]="title1"
+                [data]="dataScholarship"
+                (selectionChange)="onSelectionChange($event)"
+              ></ehiring-dropdown>
+            </div>
+          </div>
+          <div class="filter-dropdown">
+            <div class="setting">
+              <ng-template #title2>
+                <span class="setting-title"> {{ majors }}</span></ng-template
+              >
+              <ehiring-dropdown
+                [temRef]="title2"
+                [data]="dataScholarship"
+                (selectionChange)="onSelectionChange($event)"
+              ></ehiring-dropdown>
+            </div>
+
+            <div class="setting">
+              <ng-template #title3>
+                <span class="setting-title"> {{ location }}</span></ng-template
+              >
+              <ehiring-dropdown
+                [temRef]="title3"
+                [data]="dataScholarship"
+                (selectionChange)="onSelectionChange($event)"
+              ></ehiring-dropdown>
+            </div>
+          </div>
+        </div>
+        <button class="find">Tìm kiếm</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -9,6 +9,7 @@ import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { SharedModule } from '../shared/styles/shared.module';
 import { EventComponent } from './event/event.component';
 import { CompetitionComponent } from './competition/competition.component';
+import { NewsScholarshipComponent } from './news-scholarship/news-scholarship.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { CompetitionComponent } from './competition/competition.component';
     ScholarshipComponent,
     EventComponent,
     CompetitionComponent,
+    NewsScholarshipComponent,
   ],
   imports: [
     CommonModule,
