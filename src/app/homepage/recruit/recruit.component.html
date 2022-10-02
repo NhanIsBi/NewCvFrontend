@@ -1,10 +1,11 @@
 <div class="page">
   <div class="page-body">
     <div class="left">
-      <!-- <div class="left-title2">Học bổng</div> -->
+      <div class="left-title1">Cộng đồng</div>
+      <div class="left-title2">Tuyển dụng</div>
       <div class="left-title3">
-        Học bổng toàn phần, bán phần của chính phủ, các tổ chức, công ty và
-        trường đại học trong nước và quốc tế hấp dẫn
+        Việc làm toàn thời gian, bán thời gian, thực tập và cơ hội tình nguyện
+        hấp dẫn
       </div>
       <div class="left-check">
         <div class="filter">
@@ -14,9 +15,7 @@
           <div class="filter-dropdown">
             <div class="setting">
               <ng-template #title>
-                <span class="setting-title">
-                  {{ scholarship }}</span
-                ></ng-template
+                <span class="setting-title"> {{ type }}</span></ng-template
               >
               <ehiring-dropdown
                 [temRef]="title"
@@ -27,7 +26,7 @@
 
             <div class="setting">
               <ng-template #title1>
-                <span class="setting-title"> {{ level }}</span></ng-template
+                <span class="setting-title"> {{ nature }}</span></ng-template
               >
               <ehiring-dropdown
                 [temRef]="title1"
@@ -39,7 +38,9 @@
           <div class="filter-dropdown">
             <div class="setting">
               <ng-template #title2>
-                <span class="setting-title"> {{ majors }}</span></ng-template
+                <span class="setting-title">
+                  {{ specialize }}</span
+                ></ng-template
               >
               <ehiring-dropdown
                 [temRef]="title2"
@@ -59,8 +60,33 @@
               ></ehiring-dropdown>
             </div>
           </div>
+          <div class="filter-dropdown">
+            <div class="setting">
+              <ng-template #title4>
+                <span class="setting-title"> {{ wage }}</span></ng-template
+              >
+              <ehiring-dropdown
+                [temRef]="title4"
+                [data]="dataScholarship"
+                (selectionChange)="onSelectionChange($event)"
+              ></ehiring-dropdown>
+            </div>
+
+            <div class="setting">
+              <ng-template #title5>
+                <span class="setting-title">
+                  {{ experience }}</span
+                ></ng-template
+              >
+              <ehiring-dropdown
+                [temRef]="title5"
+                [data]="dataScholarship"
+                (selectionChange)="onSelectionChange($event)"
+              ></ehiring-dropdown>
+            </div>
+          </div>
         </div>
-        <button class="find">Tìm kiếm</button>
+        <button class="find" (click)="newsScholarship()">Tìm kiếm</button>
       </div>
     </div>
   </div>

@@ -3,8 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { CompetitionComponent } from './competition/competition.component';
 import { EventComponent } from './event/event.component';
 import { HomepageComponent } from './homepage.component';
-import { NewsScholarshipComponent } from './news-scholarship/news-scholarship.component';
+import { NewsScholarshipComponent } from './news/news-scholarship/news-scholarship.component';
 import { PageComponent } from './page/page.component';
+import { RecruitComponent } from './recruit/recruit.component';
 import { ScholarshipComponent } from './scholarship/scholarship.component';
 
 @NgModule({
@@ -33,6 +34,10 @@ import { ScholarshipComponent } from './scholarship/scholarship.component';
           {
             path: 'competition',
             component: CompetitionComponent,
+          },
+          {
+            path: 'recruit',
+            component: RecruitComponent,
           },
         ],
       },

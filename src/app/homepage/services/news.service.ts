@@ -1,0 +1,304 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { scholarship } from '../model/news.model';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class newsService {
+  public listviet = [
+    'à',
+    'á',
+    'ạ',
+    'ả',
+    'ã',
+    'â',
+    'ầ',
+    'ấ',
+    'ậ',
+    'ẩ',
+    'ẫ',
+    'ă',
+    'ằ',
+    'ắ',
+    'ặ',
+    'ẳ',
+    'ẵ',
+    'è',
+    'é',
+    'ẹ',
+    'ẻ',
+    'ẽ',
+    'ê',
+    'ề',
+    'ế',
+    'ệ',
+    'ể',
+    'ễ',
+    'ì',
+    'í',
+    'ị',
+    'ỉ',
+    'ĩ',
+    'ò',
+    'ó',
+    'ọ',
+    'ỏ',
+    'õ',
+    'ô',
+    'ồ',
+    'ố',
+    'ộ',
+    'ổ',
+    'ỗ',
+    'ơ',
+    'ờ',
+    'ớ',
+    'ợ',
+    'ở',
+    'ỡ',
+    'ù',
+    'ú',
+    'ụ',
+    'ủ',
+    'ũ',
+    'ư',
+    'ừ',
+    'ứ',
+    'ự',
+    'ử',
+    'ữ',
+    'ỳ',
+    'ý',
+    'ỵ',
+    'ỷ',
+    'ỹ',
+    'đ',
+  ];
+  public conditionDup = false;
+  public scholarship = new scholarship();
+  public listScholarship: scholarship[] = [];
+  constructor(private http: HttpClient) {
+    this.initlistScholarship();
+  }
+  urlPath = 'http://localhost:3000/' + 'criteria';
+
+  getAllTalents() {
+    return this.http.get(this.urlPath);
+  }
+
+  getTalent(id: string) {
+    return this.http.get(`${this.urlPath}/${id}`);
+  }
+
+  createTalent(data: any) {
+    return this.http.post(`${this.urlPath}`, data);
+  }
+
+  updateTalent(data: any) {
+    return this.http.post(`${this.urlPath}/${data._id}`, data);
+  }
+  deleteTalent(id: string) {
+    return this.http.delete(`${this.urlPath}/${id}`);
+  }
+
+  initlistScholarship() {
+    this.listScholarship.push({
+      id: 'r7nh4ssd8js83nrhffhs2vb0',
+      scholarship: 'Pending Pool',
+      level: '',
+      majors: '',
+      location: '',
+      descriptions:
+        'Đây là Talent Pool mặc định được hệ thống tự động tạo ra để lưu thông tin ứng viên trong trường hợp không thể tìm thấy bài đăng tuyển tương ứng.',
+    });
+    this.listScholarship.push({
+      id: 'j8dh45gd8js83nrh8dhs8h3e',
+      scholarship: 'DevOps',
+      level: '',
+      majors: '',
+      location: '',
+      descriptions: 'Đây là nhóm DevOps',
+    });
+    this.listScholarship.push({
+      id: '6295bfd471ea517f1c2e4593',
+      scholarship: 'Hành chính - HR',
+      level: '',
+      majors: '',
+      location: '',
+      descriptions: 'Đây là nhóm Hành chính - nhân sự',
+    });
+    this.listScholarship.push({
+      id: '629aa6e9fd31520018e406bb',
+      scholarship: 'BrSE',
+      level: '',
+      majors: '',
+      location: '',
+      descriptions: 'Đây là nhóm BrSE',
+    });
+    this.listScholarship.push({
+      id: '629ebee1fd31520018e58d30',
+      scholarship: 'Kinh doanh',
+      level: '',
+      majors: '',
+      location: '',
+      descriptions: 'Đây là nhóm Kinh doanh',
+    });
+    this.listScholarship.push({
+      id: '629f3db1fd31520018e5e920',
+      scholarship: 'Fullstack',
+      level: '',
+      majors: '',
+      location: '',
+      descriptions: 'Đây là nhóm Fullstack',
+    });
+    this.listScholarship.push({
+      id: '62a6b117e189bb43b24ca105',
+      scholarship: 'Sale',
+      level: '',
+      majors: '',
+      location: '',
+      descriptions: 'Đây là nhóm Sale',
+    });
+    this.listScholarship.push({
+      id: '6295bfd471ea517f1c2e4599',
+      scholarship: 'Marketing',
+      level: '',
+      majors: '',
+      location: '',
+      descriptions: '',
+    });
+    this.listScholarship.push({
+      id: 'j8dh45gd8js83nrh8dhs8h39',
+      scholarship: 'Kế toán',
+      level: '',
+      majors: '',
+      location: '',
+      descriptions: '',
+    });
+    this.listScholarship.push({
+      id: 'r7nh4ssd8js83nrhffhs2vb9',
+      scholarship: 'Trưởng phòng',
+      level: '',
+      majors: '',
+      location: '',
+      descriptions: '',
+    });
+    this.listScholarship.push({
+      id: '629aa6e9fd31520018e406b9',
+      scholarship: 'UI/UX',
+      level: '',
+      majors: '',
+      location: '',
+      descriptions: 'Đây là nhóm UI/UX',
+    });
+    this.listScholarship.push({
+      id: '629ebee1fd31520018e58d39',
+      scholarship: 'QC/QA',
+      level: '',
+      majors: '',
+      location: '',
+      descriptions: 'Đây là nhóm QC/QA',
+    });
+    this.listScholarship.push({
+      id: '629f3db1fd31520018e5e929',
+      scholarship: 'DBA',
+      level: '',
+      majors: '',
+      location: '',
+      descriptions: 'Đây là nhóm DBA',
+    });
+    this.listScholarship.push({
+      id: '62a6b117e189bb43b24ca109',
+      scholarship: 'TA',
+      level: '',
+      majors: '',
+      location: '',
+      descriptions: '',
+    });
+  }
+
+  create(newCom: scholarship) {
+    this.listScholarship.unshift(newCom);
+  }
+  update(newCom: scholarship) {
+    this.listScholarship.forEach((scholarship: scholarship, idx: number) => {
+      if (scholarship.id == newCom.id) {
+        this.listScholarship[idx] = newCom;
+        return;
+      }
+    });
+  }
+  delete(newCom: scholarship) {
+    for (let i = 0; i < this.listScholarship.length; i++) {
+      if (this.listScholarship[i] === newCom) {
+        this.listScholarship.splice(i, 1);
+      }
+    }
+  }
+
+  deleteById(id: string) {
+    this.listScholarship.forEach((scholarship: scholarship, idx: number) => {
+      if (scholarship.id == id) {
+        this.listScholarship.splice(idx, 1);
+      }
+    });
+  }
+
+  // public getscholarshipInfo(id?: string): Observable<scholarship | undefined> {
+  //   if (!id) {
+  //     return of(emptyscholarshipInformation);
+  //   }
+  //   return of(this.listScholarship.find((item) => item.id === id));
+  // }
+  public getRandomId(): string {
+    let text = '';
+    const possible = 'abcdefghijklmnopqrstuvwxyz0123456789';
+    for (let i = 0; i < 24; i++)
+      text += possible.charAt(Math.floor(Math.random() * possible.length));
+    return text;
+  }
+
+  public isscholarshipExist(id: string) {
+    return this.listScholarship.find((item) => item.id === id) ? true : false;
+  }
+
+  public getscholarship(id: string) {
+    return this.listScholarship.find((item) => item.id === id);
+  }
+  checkVietnames(str: string) {
+    str = str.toLowerCase();
+    if (this.listviet.includes(str)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  public toLowerCaseNonAccentVietnamese(value: string, searchText?: string) {
+    value = value.toLowerCase();
+    if (searchText && this.checkVietnames(searchText)) {
+      return value;
+    } else {
+      //     We can also use this instead of from line 11 to line 17
+      //     str = str.replace(/\u00E0|\u00E1|\u1EA1|\u1EA3|\u00E3|\u00E2|\u1EA7|\u1EA5|\u1EAD|\u1EA9|\u1EAB|\u0103|\u1EB1|\u1EAF|\u1EB7|\u1EB3|\u1EB5/g, "a");
+      //     str = str.replace(/\u00E8|\u00E9|\u1EB9|\u1EBB|\u1EBD|\u00EA|\u1EC1|\u1EBF|\u1EC7|\u1EC3|\u1EC5/g, "e");
+      //     str = str.replace(/\u00EC|\u00ED|\u1ECB|\u1EC9|\u0129/g, "i");
+      //     str = str.replace(/\u00F2|\u00F3|\u1ECD|\u1ECF|\u00F5|\u00F4|\u1ED3|\u1ED1|\u1ED9|\u1ED5|\u1ED7|\u01A1|\u1EDD|\u1EDB|\u1EE3|\u1EDF|\u1EE1/g, "o");
+      //     str = str.replace(/\u00F9|\u00FA|\u1EE5|\u1EE7|\u0169|\u01B0|\u1EEB|\u1EE9|\u1EF1|\u1EED|\u1EEF/g, "u");
+      //     str = str.replace(/\u1EF3|\u00FD|\u1EF5|\u1EF7|\u1EF9/g, "y");
+      //     str = str.replace(/\u0111/g, "d");
+      value = value.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, 'a');
+      value = value.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, 'e');
+      value = value.replace(/ì|í|ị|ỉ|ĩ/g, 'i');
+      value = value.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, 'o');
+      value = value.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, 'u');
+      value = value.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, 'y');
+      value = value.replace(/đ/g, 'd');
+      // Some system encode vietnamese combining accent as individual utf-8 characters
+      value = value.replace(/\u0300|\u0301|\u0303|\u0309|\u0323/g, ''); // Huyền sắc hỏi ngã nặng
+      value = value.replace(/\u02C6|\u0306|\u031B/g, ''); // Â, Ê, Ă, Ơ, Ư
+      return value;
+    }
+  }
+}

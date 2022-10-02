@@ -2,15 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-scholarship',
-  templateUrl: './scholarship.component.html',
-  styleUrls: ['./scholarship.component.less'],
+  selector: 'app-recruit',
+  templateUrl: './recruit.component.html',
+  styleUrls: ['./recruit.component.less'],
 })
-export class ScholarshipComponent implements OnInit {
-  scholarship = 'Loại học bổng';
-  level = 'Trình độ';
-  majors = 'Ngành học';
+export class RecruitComponent implements OnInit {
+  type = 'Loại hình';
+  nature = 'Tính chất công việc';
+  specialize = 'Chuyên môn';
   location = 'Địa điểm';
+  wage = 'Mức lương';
+  experience = 'Kinh nghiệm';
   dataScholarship: string[] = [];
   constructor(private router: Router) {}
 
@@ -25,7 +27,7 @@ export class ScholarshipComponent implements OnInit {
     this.dataScholarship.push('FPT Software');
   }
   onSelectionChange(event: string) {
-    this.scholarship = event;
+    this.type = event;
   }
   newsScholarship() {
     this.router.navigate(['./homepage/news-scholarship/']);

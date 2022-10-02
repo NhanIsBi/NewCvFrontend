@@ -1,7 +1,6 @@
 <div class="page">
   <div class="page-body">
     <div class="left">
-      <div class="left-title1">Cộng đồng</div>
       <div class="left-title2">Học bổng</div>
       <div class="left-title3">
         Học bổng toàn phần, bán phần của chính phủ, các tổ chức, công ty và
@@ -21,7 +20,7 @@
               >
               <ehiring-dropdown
                 [temRef]="title"
-                [data]="dataScholarship"
+                [data]="listscholarship"
                 (selectionChange)="onSelectionChange($event)"
               ></ehiring-dropdown>
             </div>
@@ -32,7 +31,7 @@
               >
               <ehiring-dropdown
                 [temRef]="title1"
-                [data]="dataScholarship"
+                [data]="listlevel"
                 (selectionChange)="onSelectionChange($event)"
               ></ehiring-dropdown>
             </div>
@@ -44,7 +43,7 @@
               >
               <ehiring-dropdown
                 [temRef]="title2"
-                [data]="dataScholarship"
+                [data]="listmajors"
                 (selectionChange)="onSelectionChange($event)"
               ></ehiring-dropdown>
             </div>
@@ -55,14 +54,20 @@
               >
               <ehiring-dropdown
                 [temRef]="title3"
-                [data]="dataScholarship"
+                [data]="listlocation"
                 (selectionChange)="onSelectionChange($event)"
               ></ehiring-dropdown>
             </div>
           </div>
         </div>
-        <button class="find" (click)="newsScholarship()">Tìm kiếm</button>
+        <button class="find">Tìm kiếm</button>
       </div>
+    </div>
+    <div class="bottom">
+      <div>TÌM THẤY 915 KẾT QUẢ VỚI TIÊU CHÍ: CHUYÊN MỤC: HỌC BỔNG</div>
+      <!-- <div *ngFor="let data of dataScholarship">
+        <div>{{ data.scholarship }}</div>
+      </div> -->
     </div>
   </div>
 </div>
