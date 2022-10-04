@@ -9,6 +9,7 @@ import { newsService } from '../../services/news.service';
   styleUrls: ['./news-scholarship.component.less'],
 })
 export class NewsScholarshipComponent implements OnInit {
+  filterList: string[] = [];
   scholarship = 'Loại học bổng';
   level = 'Trình độ';
   majors = 'Ngành học';
@@ -56,5 +57,24 @@ export class NewsScholarshipComponent implements OnInit {
   }
   onSelectionChangeLocation(event: string) {
     this.location = event;
+  }
+  search(event: Event) {
+    if (event['target']) {
+      const element = event['target'] as HTMLInputElement;
+      const searchText = element.value;
+      element.value = '';
+      this.addFilter(searchText);
+    }
+  }
+  addFilter(filterText: string) {
+    if (
+      !this.filterList.some(
+        (x) => x.toLowerCase() == filterText.toLowerCase()
+      ) &&
+      filterText.length > 0
+    ) {
+      this.filterList.push(filterText);
+      // this.getPageList(0, true, filterText);
+    }
   }
 }
