@@ -11,6 +11,7 @@ import { EventComponent } from './event/event.component';
 import { CompetitionComponent } from './competition/competition.component';
 import { NewsScholarshipComponent } from './news/news-scholarship/news-scholarship.component';
 import { RecruitComponent } from './recruit/recruit.component';
+import { NzOverlayModule } from 'ng-zorro-antd/core/overlay';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { RecruitComponent } from './recruit/recruit.component';
     NzInputModule,
     NzDropDownModule,
     SharedModule,
+    NzOverlayModule,
   ],
 })
 export class HomepageModule {}

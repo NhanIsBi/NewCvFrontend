@@ -12,20 +12,46 @@ export class ScholarshipComponent implements OnInit {
   majors = 'Ngành học';
   location = 'Địa điểm';
   dataScholarship: string[] = [];
+  dataLevel: string[] = [];
+  dataMajors: string[] = [];
+  dataLocation: string[] = [];
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-    this.initDataScholarship();
+    this.initData();
   }
-  initDataScholarship() {
-    this.dataScholarship.push('FPT Telecom');
-    this.dataScholarship.push('FPT Infomation system');
-    this.dataScholarship.push('SENDO');
-    this.dataScholarship.push('FPT Shop');
-    this.dataScholarship.push('FPT Software');
+  initData() {
+    this.dataScholarship.push('Toàn phần');
+    this.dataScholarship.push('Bán phần');
+    this.dataScholarship.push('khác');
+    this.dataScholarship.push('Tất cả');
+    this.dataLevel.push('Cử nhân');
+    this.dataLevel.push('Kỹ sư');
+    this.dataLevel.push('Kiến trúc sư');
+    this.dataLevel.push('Thạc sĩ');
+    this.dataLevel.push('Tiến sĩ');
+    this.dataMajors.push('Kinh tế');
+    this.dataMajors.push('Công nghệ thông tin');
+    this.dataMajors.push('Kiến trúc');
+    this.dataMajors.push('Logictist');
+    this.dataMajors.push('Mỹ thuật');
+    this.dataLocation.push('Đức');
+    this.dataLocation.push('Nga');
+    this.dataLocation.push('Anh');
+    this.dataLocation.push('Úc');
+    this.dataLocation.push('Mỹ');
   }
-  onSelectionChange(event: string) {
+  onSelectionChangeScholarship(event: string) {
     this.scholarship = event;
+  }
+  onSelectionChangeLevel(event: string) {
+    this.level = event;
+  }
+  onSelectionChangeMajors(event: string) {
+    this.majors = event;
+  }
+  onSelectionChangeLocation(event: string) {
+    this.location = event;
   }
   newsScholarship() {
     this.router.navigate(['./homepage/news-scholarship/']);

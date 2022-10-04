@@ -3,8 +3,9 @@
   <span nz-icon nzType="down"></span>
 </a>
 <nz-dropdown-menu #menu="nzDropdownMenu">
-  <ul nz-menu>
+  <ul nz-menu class="down">
     <li
+      class="li"
       nz-menu-item
       (click)="onClick(idx)"
       *ngFor="let i of data; index as idx"

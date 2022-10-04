@@ -22,7 +22,7 @@
               <ehiring-dropdown
                 [temRef]="title"
                 [data]="dataScholarship"
-                (selectionChange)="onSelectionChange($event)"
+                (selectionChange)="onSelectionChangeScholarship($event)"
               ></ehiring-dropdown>
             </div>
 
@@ -32,8 +32,8 @@
               >
               <ehiring-dropdown
                 [temRef]="title1"
-                [data]="dataScholarship"
-                (selectionChange)="onSelectionChange($event)"
+                [data]="dataLevel"
+                (selectionChange)="onSelectionChangeLevel($event)"
               ></ehiring-dropdown>
             </div>
           </div>
@@ -44,8 +44,8 @@
               >
               <ehiring-dropdown
                 [temRef]="title2"
-                [data]="dataScholarship"
-                (selectionChange)="onSelectionChange($event)"
+                [data]="dataMajors"
+                (selectionChange)="onSelectionChangeMajors($event)"
               ></ehiring-dropdown>
             </div>
 
@@ -55,8 +55,8 @@
               >
               <ehiring-dropdown
                 [temRef]="title3"
-                [data]="dataScholarship"
-                (selectionChange)="onSelectionChange($event)"
+                [data]="dataLocation"
+                (selectionChange)="onSelectionChangeLocation($event)"
               ></ehiring-dropdown>
             </div>
           </div>

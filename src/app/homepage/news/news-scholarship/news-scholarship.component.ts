@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { scholarship } from '../../model/news.model';
 import { newsService } from '../../services/news.service';
 
@@ -12,26 +13,48 @@ export class NewsScholarshipComponent implements OnInit {
   level = 'Trình độ';
   majors = 'Ngành học';
   location = 'Địa điểm';
-  listscholarship: string[] = [];
-  listlevel: string[] = [];
-  listmajors: string[] = [];
-  listlocation: string[] = [];
-  dataScholarship: scholarship[] = [];
-  constructor() // private sevices: newsService
-  {}
+  dataScholarship: string[] = [];
+  dataLevel: string[] = [];
+  dataMajors: string[] = [];
+  dataLocation: string[] = [];
+  listScholarship: scholarship[] = [];
+  constructor(private router: Router, private sevices: newsService) {}
 
   ngOnInit(): void {
-    // this.dataScholarship = this.sevices.listScholarship;
-    // for (let i = 0; i < this.sevices.listScholarship.length; i++) {
-    //   this.listscholarship.push(this.sevices.listScholarship[i].scholarship);
-    //   this.listlevel.push(this.sevices.listScholarship[i].level);
-    //   this.listmajors.push(this.sevices.listScholarship[i].majors);
-    //   this.listlocation.push(this.sevices.listScholarship[i].location);
-    // }
-    // console.log(this.dataScholarship);
+    this.initData();
+    this.listScholarship = this.sevices.listScholarship;
   }
-
-  onSelectionChange(event: string) {
+  initData() {
+    this.dataScholarship.push('Toàn phần');
+    this.dataScholarship.push('Bán phần');
+    this.dataScholarship.push('khác');
+    this.dataScholarship.push('Tất cả');
+    this.dataLevel.push('Cử nhân');
+    this.dataLevel.push('Kỹ sư');
+    this.dataLevel.push('Kiến trúc sư');
+    this.dataLevel.push('Thạc sĩ');
+    this.dataLevel.push('Tiến sĩ');
+    this.dataMajors.push('Kinh tế');
+    this.dataMajors.push('Công nghệ thông tin');
+    this.dataMajors.push('Kiến trúc');
+    this.dataMajors.push('Logictist');
+    this.dataMajors.push('Mỹ thuật');
+    this.dataLocation.push('Đức');
+    this.dataLocation.push('Nga');
+    this.dataLocation.push('Anh');
+    this.dataLocation.push('Úc');
+    this.dataLocation.push('Mỹ');
+  }
+  onSelectionChangeScholarship(event: string) {
     this.scholarship = event;
+  }
+  onSelectionChangeLevel(event: string) {
+    this.level = event;
+  }
+  onSelectionChangeMajors(event: string) {
+    this.majors = event;
+  }
+  onSelectionChangeLocation(event: string) {
+    this.location = event;
   }
 }

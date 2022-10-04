@@ -107,26 +107,26 @@ export class newsService {
     this.listScholarship.push({
       id: 'r7nh4ssd8js83nrhffhs2vb0',
       scholarship: 'Pending Pool',
-      level: '',
-      majors: '',
-      location: '',
+      level: 'Cử nhân',
+      majors: 'Kinh tế',
+      location: 'Đức',
       descriptions:
         'Đây là Talent Pool mặc định được hệ thống tự động tạo ra để lưu thông tin ứng viên trong trường hợp không thể tìm thấy bài đăng tuyển tương ứng.',
     });
     this.listScholarship.push({
       id: 'j8dh45gd8js83nrh8dhs8h3e',
       scholarship: 'DevOps',
-      level: '',
-      majors: '',
-      location: '',
+      level: 'Thạc sĩ',
+      majors: 'Công nghệ thông tin',
+      location: 'Mỹ',
       descriptions: 'Đây là nhóm DevOps',
     });
     this.listScholarship.push({
       id: '6295bfd471ea517f1c2e4593',
       scholarship: 'Hành chính - HR',
-      level: '',
-      majors: '',
-      location: '',
+      level: 'Kiến trúc sư',
+      majors: 'Kiến trúc',
+      location: 'Nga',
       descriptions: 'Đây là nhóm Hành chính - nhân sự',
     });
     this.listScholarship.push({
@@ -219,20 +219,20 @@ export class newsService {
     });
   }
 
-  create(newCom: scholarship) {
-    this.listScholarship.unshift(newCom);
+  create(scholar: scholarship) {
+    this.listScholarship.unshift(scholar);
   }
-  update(newCom: scholarship) {
+  update(scholar: scholarship) {
     this.listScholarship.forEach((scholarship: scholarship, idx: number) => {
-      if (scholarship.id == newCom.id) {
-        this.listScholarship[idx] = newCom;
+      if (scholarship.id == scholar.id) {
+        this.listScholarship[idx] = scholar;
         return;
       }
     });
   }
-  delete(newCom: scholarship) {
+  delete(scholar: scholarship) {
     for (let i = 0; i < this.listScholarship.length; i++) {
-      if (this.listScholarship[i] === newCom) {
+      if (this.listScholarship[i] === scholar) {
         this.listScholarship.splice(i, 1);
       }
     }

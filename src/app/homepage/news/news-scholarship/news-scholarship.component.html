@@ -20,8 +20,8 @@
               >
               <ehiring-dropdown
                 [temRef]="title"
-                [data]="listscholarship"
-                (selectionChange)="onSelectionChange($event)"
+                [data]="dataScholarship"
+                (selectionChange)="onSelectionChangeScholarship($event)"
               ></ehiring-dropdown>
             </div>
 
@@ -31,8 +31,8 @@
               >
               <ehiring-dropdown
                 [temRef]="title1"
-                [data]="listlevel"
-                (selectionChange)="onSelectionChange($event)"
+                [data]="dataLevel"
+                (selectionChange)="onSelectionChangeLevel($event)"
               ></ehiring-dropdown>
             </div>
           </div>
@@ -43,8 +43,8 @@
               >
               <ehiring-dropdown
                 [temRef]="title2"
-                [data]="listmajors"
-                (selectionChange)="onSelectionChange($event)"
+                [data]="dataMajors"
+                (selectionChange)="onSelectionChangeMajors($event)"
               ></ehiring-dropdown>
             </div>
 
@@ -54,8 +54,8 @@
               >
               <ehiring-dropdown
                 [temRef]="title3"
-                [data]="listlocation"
-                (selectionChange)="onSelectionChange($event)"
+                [data]="dataLocation"
+                (selectionChange)="onSelectionChangeLocation($event)"
               ></ehiring-dropdown>
             </div>
           </div>
@@ -64,10 +64,17 @@
       </div>
     </div>
     <div class="bottom">
-      <div>TÌM THẤY 915 KẾT QUẢ VỚI TIÊU CHÍ: CHUYÊN MỤC: HỌC BỔNG</div>
-      <!-- <div *ngFor="let data of dataScholarship">
+      <div>
+        TÌM THẤY {{ listScholarship.length }} KẾT QUẢ VỚI TIÊU CHÍ: CHUYÊN MỤC:
+        HỌC BỔNG
+      </div>
+      <div *ngFor="let data of listScholarship" class="bottom-list">
         <div>{{ data.scholarship }}</div>
-      </div> -->
+        <div>{{ data.level }}</div>
+        <div>{{ data.majors }}</div>
+        <div>{{ data.location }}</div>
+        <div>{{ data.descriptions }}</div>
+      </div>
     </div>
   </div>
 </div>

@@ -8,7 +8,9 @@ import { LoginComponent } from './login/login.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { NzPaginationModule } from 'ng-zorro-antd/pagination';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
-
+import { SharedModule } from './shared/styles/shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,10 +19,13 @@ import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
     HomepageComponent,
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
     NzPaginationModule,
     NzDropDownModule,
+    SharedModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
