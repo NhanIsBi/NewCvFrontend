@@ -58,14 +58,14 @@ export class NewsScholarshipComponent implements OnInit {
   onSelectionChangeLocation(event: string) {
     this.location = event;
   }
-  search(event: Event) {
-    if (event['target']) {
-      const element = event['target'] as HTMLInputElement;
-      const searchText = element.value;
-      element.value = '';
-      this.addFilter(searchText);
-    }
-  }
+  // search(event: Event) {
+  //   if (event['target']) {
+  //     const element = event['target'] as HTMLInputElement;
+  //     const searchText = element.value;
+  //     element.value = '';
+  //     this.addFilter(searchText);
+  //   }
+  // }
   addFilter(filterText: string) {
     if (
       !this.filterList.some(
@@ -77,4 +77,43 @@ export class NewsScholarshipComponent implements OnInit {
       // this.getPageList(0, true, filterText);
     }
   }
+  search(event: Event) {
+    if (event.target) {
+      const element = event.target as HTMLInputElement;
+      const searchText = element.value;
+      // this.filter(searchText);
+      console.log(searchText);
+
+      // this.addFilter(searchText);
+    }
+  }
+  // filter(searchText: string) {
+  //   // console.log(this.todo1);
+  //   if (searchText.length === 0) this.todo = this.todo1;
+  //   if (this.sevices.checkVietnames(searchText)) {
+  //     this.todo = this.todo1.filter(
+  //       (item) =>
+  //         //if vietnam accent
+  //         //checkVietnam (searchText) true
+
+  //         item.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())
+  //       //else
+  //       //convertVietnames(item.title).include()
+  //     );
+  //   } else {
+  //     this.todo = this.todo1.filter(
+  //       (item) =>
+  //         //if vietnam accent
+  //         //checkVietnam (searchText) true
+
+  //         this.sevices
+  //           .toLowerCaseNonAccentVietnamese(item)
+  //           .includes(searchText.toLocaleLowerCase())
+  //       //else
+  //       //convertVietnames(item.title).include()
+  //     );
+  //   }
+
+  //   console.log(this.todo);
+  // }
 }

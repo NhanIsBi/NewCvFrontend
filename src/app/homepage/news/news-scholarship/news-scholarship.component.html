@@ -9,7 +9,12 @@
       <div class="left-check">
         <div class="filter">
           <div class="filter-search">
-            <input nz-input placeholder="Tìm kiếm theo từ khoá" class="input" />
+            <input
+              nz-input
+              placeholder="Tìm kiếm theo từ khoá"
+              class="input"
+              (keydown.enter)="search($event)"
+            />
           </div>
           <div class="filter-dropdown">
             <div class="setting">

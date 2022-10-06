@@ -1,0 +1,146 @@
+<div class="dialog">
+  <div class="dialog-icon" *ngIf="componentData.type != 'default'">
+    <ng-container
+      [ngTemplateOutlet]="successIcon"
+      *ngIf="componentData.type == 'success'"
+    ></ng-container>
+    <ng-container
+      [ngTemplateOutlet]="warningIcon"
+      *ngIf="componentData.type == 'warning'"
+    ></ng-container>
+    <ng-container
+      [ngTemplateOutlet]="dangerIcon"
+      *ngIf="componentData.type == 'danger'"
+    ></ng-container>
+  </div>
+
+  <div class="dialog-title">{{ componentData.title }}</div>
+
+  <div class="dialog-content">{{ componentData.content }}</div>
+
+  <div class="dialog-footer">
+    <button
+      class="button-secondary"
+      (click)="cancel()"
+      [ngClass]="{
+        warning: componentData.type == 'warning',
+        danger: componentData.type == 'danger'
+      }"
+      *ngIf="componentData.type != 'success'"
+    >
+      {{ componentData.cancelText || 'Hủy' }}
+    </button>
+    <button
+      class="button-primary"
+      (click)="confirm()"
+      [ngClass]="{
+        warning: componentData.type == 'warning',
+        success: componentData.type == 'success',
+        danger: componentData.type == 'danger'
+      }"
+      *ngIf="componentData.mode == 'duo'"
+    >
+      {{ componentData.confirmText || 'Đồng ý' }}
+    </button>
+
+    <button
+      class="button-primary single-button"
+      (click)="confirm()"
+      [ngClass]="{
+        warning: componentData.type == 'warning',
+        success: componentData.type == 'success',
+        danger: componentData.type == 'danger'
+      }"
+      *ngIf="componentData.mode == 'uno'"
+    >
+      {{ componentData.confirmText || 'Đồng ý' }}
+    </button>
+  </div>
+</div>
+
+<ng-template #successIcon>
+  <svg
+    width="64"
+    height="64"
+    viewBox="0 0 64 64"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g clip-path="url(#clip0_1162_23281)">
+      <path
+        d="M32.0007 58.6663C46.7282 58.6663 58.6673 46.7273 58.6673 31.9997C58.6673 17.2721 46.7282 5.33301 32.0007 5.33301C17.2731 5.33301 5.33398 17.2721 5.33398 31.9997C5.33398 46.7273 17.2731 58.6663 32.0007 58.6663Z"
+        fill="#2EB553"
+      />
+      <path
+        d="M29.8602 40C29.154 40 28.448 39.719 27.9089 39.157L22.2222 33.228C21.1441 32.1045 20.9928 30.4569 22.0709 29.3333C23.149 28.2093 24.9364 28.2093 26.0145 29.3333L29.8602 34.112L37.9533 24.843C39.0314 23.719 40.9497 23.719 42.0278 24.843C43.1059 25.9665 42.7161 27.7883 41.638 28.9119L31.8115 39.157C31.2726 39.719 30.5664 40 29.8602 40Z"
+        fill="white"
+      />
+    </g>
+    <defs>
+      <clipPath id="clip0_1162_23281">
+        <rect
+          width="53.3333"
+          height="53.3333"
+          fill="white"
+          transform="translate(5.33398 5.33301)"
+        />
+      </clipPath>
+    </defs>
+  </svg>
+</ng-template>
+
+<ng-template #warningIcon>
+  <svg
+    width="64"
+    height="64"
+    viewBox="0 0 64 64"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M31.9996 8C34.5201 7.99987 37.0402 9.25884 38.517 11.7734L57.5659 44.205C60.616 49.3983 56.9715 56 51.0497 56H12.952C7.03376 56 3.38386 49.4014 6.43552 44.205L25.4846 11.7734C26.9628 9.25679 29.4814 8.00013 31.9996 8Z"
+      fill="#FA8C16"
+    />
+    <path
+      d="M32.0004 20.3867C29.244 20.3867 28.7347 22.9954 28.8878 25.6828L29.3084 35.193C29.905 38.1645 34.0974 38.1574 34.6926 35.193L35.1133 25.6828C35.2664 22.7836 34.7579 20.3867 32.0004 20.3867Z"
+      fill="white"
+    />
+    <path
+      d="M32.0005 46.7102C33.7332 46.7102 35.1378 45.3237 35.1378 43.6134C35.1378 41.9031 33.7332 40.5166 32.0005 40.5166C30.2679 40.5166 28.8633 41.9031 28.8633 43.6134C28.8633 45.3237 30.2679 46.7102 32.0005 46.7102Z"
+      fill="white"
+    />
+  </svg>
+</ng-template>
+
+<ng-template #dangerIcon>
+  <svg
+    width="64"
+    height="64"
+    viewBox="0 0 64 64"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g clip-path="url(#clip0_1203_25596)">
+      <path
+        d="M31.9999 58.6667C46.7275 58.6667 58.6666 46.7276 58.6666 32C58.6666 17.2724 46.7275 5.33337 31.9999 5.33337C17.2723 5.33337 5.33325 17.2724 5.33325 32C5.33325 46.7276 17.2723 58.6667 31.9999 58.6667Z"
+        fill="#F5222D"
+      />
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M22.1143 22.1144C23.1557 21.073 24.8441 21.073 25.8855 22.1144L31.9999 28.6667L38.1143 22.1144C39.1557 21.073 40.8441 21.073 41.8855 22.1144C42.9269 23.1558 42.9269 24.8443 41.8855 25.8857L35.3333 32L41.8855 38.1144C42.9269 39.1558 42.9269 40.8443 41.8855 41.8857C40.8441 42.9271 39.1557 42.9271 38.1143 41.8857L31.9999 35.3334L25.8855 41.8857C24.8441 42.9271 23.1557 42.9271 22.1143 41.8857C21.0729 40.8443 21.0729 39.1558 22.1143 38.1144L28.6666 32L22.1143 25.8857C21.0729 24.8443 21.0729 23.1558 22.1143 22.1144Z"
+        fill="white"
+      />
+    </g>
+    <defs>
+      <clipPath id="clip0_1203_25596">
+        <rect
+          width="53.3333"
+          height="53.3333"
+          fill="white"
+          transform="translate(5.33325 5.33337)"
+        />
+      </clipPath>
+    </defs>
+  </svg>
+</ng-template>
