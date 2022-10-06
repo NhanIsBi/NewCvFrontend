@@ -83,7 +83,9 @@ export class newsService {
     this.initlistScholarship();
   }
   urlPath = 'http://localhost:3000/' + 'criteria';
-
+  getListScholarship() {
+    return of(this.listScholarship);
+  }
   getAllTalents() {
     return this.http.get(this.urlPath);
   }

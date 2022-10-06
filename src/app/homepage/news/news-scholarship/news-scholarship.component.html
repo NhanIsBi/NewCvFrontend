@@ -73,7 +73,7 @@
         TÌM THẤY {{ listScholarship.length }} KẾT QUẢ VỚI TIÊU CHÍ: CHUYÊN MỤC:
         HỌC BỔNG
       </div>
-      <div *ngFor="let data of listScholarship" class="bottom-list">
+      <div *ngFor="let data of listScholarship$ | async" class="bottom-list">
         <div>{{ data.scholarship }}</div>
         <div>{{ data.level }}</div>
         <div>{{ data.majors }}</div>
@@ -81,5 +81,12 @@
         <div>{{ data.descriptions }}</div>
       </div>
     </div>
+    <nz-pagination
+      [nzPageIndex]="pageIndex$ | async"
+      [nzTotal]="(rawListScholarship$ | async)?.length ?? 0"
+      [nzPageSize]="pageSize$ | async"
+      (nzPageIndexChange)="onPageIndexChange($event)"
+      class="customPagination"
+    ></nz-pagination>
   </div>
 </div>
