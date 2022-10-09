@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
-import { LoginComponent } from './login/login.component';
-import { ResignComponent } from './resign/resign.component';
+import { LoginComponent } from './homepage/login/login.component';
+import { ResignComponent } from './homepage/resign/resign.component';
 
 const routes: Routes = [];
 
@@ -19,26 +19,6 @@ const routes: Routes = [];
       {
         path: 'home',
         component: AppComponent,
-      },
-      {
-        path: 'login',
-        component: LoginComponent,
-        // children: [
-        //   {
-        //     path: 'resign',
-        //     component: ResignComponent,
-        //   },
-        // ],
-      },
-      {
-        path: 'resign',
-        component: ResignComponent,
-        // children: [
-        //   {
-        //     path: 'home',
-        //     component: ResignComponent,
-        //   },
-        // ],
       },
       {
         path: 'homepage',

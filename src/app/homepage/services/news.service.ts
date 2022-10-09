@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { scholarship } from '../model/news.model';
+import { competiton, event, scholarship } from '../model/news.model';
 
 @Injectable({
   providedIn: 'root',
@@ -79,8 +79,12 @@ export class newsService {
   public conditionDup = false;
   public scholarship = new scholarship();
   public listScholarship: scholarship[] = [];
+  public listEvent: event[] = [];
+  public listCompetiton: competiton[] = [];
   constructor(private http: HttpClient) {
     this.initlistScholarship();
+    this.initlistEvent();
+    this.initlistCompetiton();
   }
   urlPath = 'http://localhost:3000/' + 'criteria';
   getListScholarship() {
@@ -216,6 +220,180 @@ export class newsService {
       scholarship: 'TA',
       level: '',
       majors: '',
+      location: '',
+      descriptions: '',
+    });
+  }
+  initlistEvent() {
+    this.listEvent.push({
+      id: 'r7nh4ssd8js83nrhffhs2vb0',
+      category: 'Event 1',
+      location: 'Đức',
+      descriptions:
+        'Đây là Talent Pool mặc định được hệ thống tự động tạo ra để lưu thông tin ứng viên trong trường hợp không thể tìm thấy bài đăng tuyển tương ứng.',
+    });
+    this.listEvent.push({
+      id: 'j8dh45gd8js83nrh8dhs8h3e',
+      category: 'Event 2',
+      location: 'Mỹ',
+      descriptions: 'Đây là nhóm DevOps',
+    });
+    this.listEvent.push({
+      id: '6295bfd471ea517f1c2e4593',
+      category: 'Event 2.1',
+      location: 'Nga',
+      descriptions: 'Đây là nhóm Hành chính - nhân sự',
+    });
+    this.listEvent.push({
+      id: '629aa6e9fd31520018e406bb',
+      category: 'Event 3',
+      location: '',
+      descriptions: 'Đây là nhóm BrSE',
+    });
+    this.listEvent.push({
+      id: '629ebee1fd31520018e58d30',
+      category: 'Event 4',
+      location: '',
+      descriptions: 'Đây là nhóm Kinh doanh',
+    });
+    this.listEvent.push({
+      id: '629f3db1fd31520018e5e920',
+      category: 'Event 5',
+      location: '',
+      descriptions: 'Đây là nhóm Fullstack',
+    });
+    this.listEvent.push({
+      id: '62a6b117e189bb43b24ca105',
+      category: 'Event 6',
+      location: '',
+      descriptions: 'Đây là nhóm Sale',
+    });
+    this.listEvent.push({
+      id: '6295bfd471ea517f1c2e4599',
+      category: 'Event 7',
+      location: '',
+      descriptions: '',
+    });
+    this.listEvent.push({
+      id: 'j8dh45gd8js83nrh8dhs8h39',
+      category: 'Event 8',
+      location: '',
+      descriptions: '',
+    });
+    this.listEvent.push({
+      id: 'r7nh4ssd8js83nrhffhs2vb9',
+      category: 'Event 9',
+      location: '',
+      descriptions: '',
+    });
+    this.listEvent.push({
+      id: '629aa6e9fd31520018e406b9',
+      category: 'Event 10',
+      location: '',
+      descriptions: 'Đây là nhóm UI/UX',
+    });
+    this.listEvent.push({
+      id: '629ebee1fd31520018e58d39',
+      category: 'Event 11',
+      location: '',
+      descriptions: 'Đây là nhóm QC/QA',
+    });
+    this.listEvent.push({
+      id: '629f3db1fd31520018e5e929',
+      category: 'Event 12',
+      location: '',
+      descriptions: 'Đây là nhóm DBA',
+    });
+    this.listEvent.push({
+      id: '62a6b117e189bb43b24ca109',
+      category: 'Event 13',
+      location: '',
+      descriptions: '',
+    });
+  }
+  initlistCompetiton() {
+    this.listCompetiton.push({
+      id: 'r7nh4ssd8js83nrhffhs2vb0',
+      category: 'Recruit 1',
+      location: 'Đức',
+      descriptions:
+        'Đây là Talent Pool mặc định được hệ thống tự động tạo ra để lưu thông tin ứng viên trong trường hợp không thể tìm thấy bài đăng tuyển tương ứng.',
+    });
+    this.listCompetiton.push({
+      id: 'j8dh45gd8js83nrh8dhs8h3e',
+      category: 'Recruit 2',
+      location: 'Mỹ',
+      descriptions: 'Đây là nhóm DevOps',
+    });
+    this.listCompetiton.push({
+      id: '6295bfd471ea517f1c2e4593',
+      category: 'Recruit 3',
+      location: 'Nga',
+      descriptions: 'Đây là nhóm Hành chính - nhân sự',
+    });
+    this.listCompetiton.push({
+      id: '629aa6e9fd31520018e406bb',
+      category: 'Recruit 4',
+      location: '',
+      descriptions: 'Đây là nhóm BrSE',
+    });
+    this.listCompetiton.push({
+      id: '629ebee1fd31520018e58d30',
+      category: 'Recruit 5',
+      location: '',
+      descriptions: 'Đây là nhóm Kinh doanh',
+    });
+    this.listCompetiton.push({
+      id: '629f3db1fd31520018e5e920',
+      category: 'Recruit 6',
+      location: '',
+      descriptions: 'Đây là nhóm Fullstack',
+    });
+    this.listCompetiton.push({
+      id: '62a6b117e189bb43b24ca105',
+      category: 'Recruit 7',
+      location: '',
+      descriptions: 'Đây là nhóm Sale',
+    });
+    this.listCompetiton.push({
+      id: '6295bfd471ea517f1c2e4599',
+      category: 'Recruit 8',
+      location: '',
+      descriptions: '',
+    });
+    this.listCompetiton.push({
+      id: 'j8dh45gd8js83nrh8dhs8h39',
+      category: 'Recruit 9',
+      location: '',
+      descriptions: '',
+    });
+    this.listCompetiton.push({
+      id: 'r7nh4ssd8js83nrhffhs2vb9',
+      category: 'Recruit 10',
+      location: '',
+      descriptions: '',
+    });
+    this.listCompetiton.push({
+      id: '629aa6e9fd31520018e406b9',
+      category: 'Recruit 11',
+      location: '',
+      descriptions: 'Đây là nhóm UI/UX',
+    });
+    this.listCompetiton.push({
+      id: '629ebee1fd31520018e58d39',
+      category: 'Recruit 12',
+      location: '',
+      descriptions: 'Đây là nhóm QC/QA',
+    });
+    this.listCompetiton.push({
+      id: '629f3db1fd31520018e5e929',
+      category: 'Recruit 13',
+      location: '',
+      descriptions: 'Đây là nhóm DBA',
+    });
+    this.listCompetiton.push({
+      id: '62a6b117e189bb43b24ca109',
+      category: 'Recruit 14',
       location: '',
       descriptions: '',
     });

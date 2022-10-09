@@ -12,11 +12,20 @@
     <div class="bar">
       <button class="bar-item" (click)="page()">Trang chủ</button>
       <div class="bar-line"></div>
-      <button class="bar-item" (click)="scholarship()">Tin tức</button>
+      <div class="setting">
+        <ng-template #title>
+          <span class="bar-item"> {{ news }}</span></ng-template
+        >
+        <ehiring-dropdown
+          [temRef]="title"
+          [data]="listNews"
+          (selectionChange)="onSelectionChangeNews($event)"
+        ></ehiring-dropdown>
+      </div>
       <div class="bar-line"></div>
-      <button class="bar-item" (click)="event()">Đăng nhập</button>
+      <button class="bar-item" (click)="login()">Đăng nhập</button>
       <div class="bar-line"></div>
-      <button class="bar-item" (click)="competition()">Đăng ký</button>
+      <button class="bar-item" (click)="resign()">Đăng ký</button>
     </div>
   </div>
   <router-outlet></router-outlet>
