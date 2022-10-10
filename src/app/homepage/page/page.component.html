@@ -11,16 +11,29 @@
     </div>
     <div class="right"></div>
   </div>
-  <div class="page-body1">
+  <!-- <div class="page-body1">
     <div class="title">Bài xem nhiều nhất trong tháng</div>
     <nz-pagination
-      [nzPageIndex]="1"
-      [nzTotal]="5"
-      [nzPageSize]="1"
+      [nzPageIndex]="pageIndex$ | async"
+      [nzTotal]="(rawListScholarship$ | async)?.length ?? 0"
+      [nzPageSize]="pageSize$ | async"
+      (nzPageIndexChange)="onPageIndexChange($event)"
       class="customPagination"
     ></nz-pagination>
-    <div>Nội dung từng bài</div>
-  </div>
+    <div class="bottom">
+      <div>
+        TÌM THẤY {{ listData.length }} KẾT QUẢ VỚI TIÊU CHÍ: CHUYÊN MỤC: HỌC
+        BỔNG
+      </div>
+      <div *ngFor="let data of listData$ | async" class="bottom-list">
+        <div>{{ data.scholarship }}</div>
+        <div>{{ data.level }}</div>
+        <div>{{ data.majors }}</div>
+        <div>{{ data.location }}</div>
+        <div>{{ data.descriptions }}</div>
+      </div>
+    </div>
+  </div> -->
   <div class="page-footer">
     <div class="left">
       © 2014 - 2022 Công ty cổ phần TopCV Việt Nam<br />
