@@ -93,7 +93,6 @@ export class newsService {
   getAllTalents() {
     return this.http.get(this.urlPath);
   }
-
   getTalent(id: string) {
     return this.http.get(`${this.urlPath}/${id}`);
   }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, combineLatest, map, of } from 'rxjs';
+import { listOfFilters } from 'src/app/config';
+import { TreeSelect } from 'src/app/shared/styles/components/dropdown-tree-select/treeSelect';
 import { scholarship } from '../../model/news.model';
 import { newsService } from '../../services/news.service';
 
@@ -21,8 +23,11 @@ export class NewsScholarshipComponent implements OnInit {
   dataLocation: string[] = [];
   listScholarship: scholarship[] = [];
   rawListScholarship$ = this.sevices.getListScholarship();
+  rawListScholarship1$ = this.rawListScholarship$;
   pageIndex$ = new BehaviorSubject<number>(1);
   pageSize$ = new BehaviorSubject<number>(5);
+  // public filters$ = new BehaviorSubject<TreeSelect[]>(listOfFilters);
+  // public searches$ = new BehaviorSubject<string[]>([]);
   listScholarship$ = combineLatest({
     list: this.rawListScholarship$,
     index: this.pageIndex$,
@@ -74,14 +79,6 @@ export class NewsScholarshipComponent implements OnInit {
   onSelectionChangeLocation(event: string) {
     this.location = event;
   }
-  // search(event: Event) {
-  //   if (event['target']) {
-  //     const element = event['target'] as HTMLInputElement;
-  //     const searchText = element.value;
-  //     element.value = '';
-  //     this.addFilter(searchText);
-  //   }
-  // }
   addFilter(filterText: string) {
     if (
       !this.filterList.some(
@@ -103,11 +100,54 @@ export class NewsScholarshipComponent implements OnInit {
       // this.addFilter(searchText);
     }
   }
+  // private isSearchTalent(scholarship: scholarship, searchList: string[]): boolean {
+  //   /*
+  //     searchFilter by all column in searchFilterKeys
+  //     talent is selected when meet all searchString in searchList
+  //     searchFilterKeys is declared in talentService
+  //   */
+  //   if (searchList.length === 0) return true;
+
+  //   return searchList.every((searchString) => {
+  //     if (searchString[0] === '#') {
+  //       return scholarship.tags.some(
+  //         (tag) =>
+  //           tag.toLocaleLowerCase() == searchString.slice(1).toLocaleLowerCase()
+  //       );
+  //     }
+  //     return searchFilterKeys.some((searchFilterKey) =>
+  //     scholarship[searchFilterKey]
+  //         ?.toLocaleLowerCase()
+  //         .includes(searchString.toLocaleLowerCase())
+  //     );
+  //   });
+  // }
+  // private isSelectedTalent(scholarship: scholarship, filters: TreeSelect[]): boolean {
+  //   /*
+  //     check condition of talent if can select a talent
+  //     just filter by one column
+  //     listOfFilter {
+  //       keys: {text:string, value: boolean}[]
+  //     }
+  //   */
+  //   return filters.reduce(
+  //     (prev, filterItem) =>
+  //       prev &&
+  //       (filterItem.value.filter((item) => item.value).length === 0 ||
+  //         filterItem.value
+  //           .filter((item) => item.value)
+  //           .map((item) => item.text)
+  //           .some((item) =>
+  //           scholarship[filterItem.key as FilterKey]?.includes(item)
+  //           )),
+  //     true
+  //   );
+  // }
   // filter(searchText: string) {
   //   // console.log(this.todo1);
-  //   if (searchText.length === 0) this.todo = this.todo1;
+  //   if (searchText.length === 0) this.rawListScholarship$ = this.rawListScholarship1$;
   //   if (this.sevices.checkVietnames(searchText)) {
-  //     this.todo = this.todo1.filter(
+  //     this.rawListScholarship$ = this.rawListScholarship1$.filter(
   //       (item) =>
   //         //if vietnam accent
   //         //checkVietnam (searchText) true
@@ -117,7 +157,7 @@ export class NewsScholarshipComponent implements OnInit {
   //       //convertVietnames(item.title).include()
   //     );
   //   } else {
-  //     this.todo = this.todo1.filter(
+  //     this.rawListScholarship$ = this.rawListScholarship1$.filter(
   //       (item) =>
   //         //if vietnam accent
   //         //checkVietnam (searchText) true
@@ -130,6 +170,6 @@ export class NewsScholarshipComponent implements OnInit {
   //     );
   //   }
 
-  //   console.log(this.todo);
+  //   console.log(this.rawListScholarship$);
   // }
 }
