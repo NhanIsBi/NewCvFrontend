@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject, combineLatest, map, of } from 'rxjs';
-import { scholarship } from '../../model/news.model';
-import { newsService } from '../../services/news.service';
+import { scholarship } from '../model/news.model';
+import { newsService } from '../services/news.service';
 
 @Component({
   selector: 'app-news-scholarship',

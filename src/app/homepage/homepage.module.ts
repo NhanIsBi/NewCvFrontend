@@ -9,7 +9,7 @@ import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { SharedModule } from '../shared/styles/shared.module';
 import { EventComponent } from './event/event.component';
 import { CompetitionComponent } from './competition/competition.component';
-import { NewsScholarshipComponent } from './news/news-scholarship/news-scholarship.component';
+import { NewsScholarshipComponent } from './news-scholarship/news-scholarship.component';
 import { RecruitComponent } from './recruit/recruit.component';
 import { NzOverlayModule } from 'ng-zorro-antd/core/overlay';
 

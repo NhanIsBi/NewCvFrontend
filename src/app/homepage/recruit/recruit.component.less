@@ -5,28 +5,29 @@
   display: flex;
   flex-direction: column;
   height: auto;
-  background-image: url("/assets/images/scholarship.png");
+  // background-image: url("/assets/images/scholarship.png");
   &-body {
-    display: flex;
     .left {
       color: white;
-      margin: 9% 3%;
-      padding: 20px 30px 10px;
+
+      padding: 20px 2rem 10px;
       border-radius: 3px;
       display: block;
-      background: rgba(0, 0, 0, 0.6);
-      flex: 0 1 calc(600% / 10);
+      //   background: rgba(0, 0, 0, 0.6);
       &-title1 {
         font-size: 0.85rem;
         font-family: sans-serif;
         color: #eca829;
       }
       &-title2 {
-        font-size: 2.625rem;
+        font-size: 2rem;
         font-family: inherit;
+        color: #eca829;
       }
       &-title3 {
         font-size: 1.25rem;
+        margin-bottom: 1rem;
+        color: @black;
         font-family: Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;
       }
       &-check {
@@ -44,10 +45,10 @@
               text-align: center;
               margin-top: 1rem;
               width: 250px;
-              border: 1px solid white;
+              border: 1px solid @black;
               border-radius: 3px;
               &-title {
-                color: @mid;
+                color: @black;
               }
             }
 
@@ -55,8 +56,10 @@
           }
           &-search {
             .input {
+              border: 1px solid @black;
+              position: revert;
               font-size: 1.25rem;
-              border-radius: 2px;
+              border-radius: 5px;
             }
           }
         }
@@ -70,6 +73,15 @@
           border-radius: 3px;
           height: fit-content;
         }
+      }
+    }
+    .bottom {
+      padding: 1rem 2rem;
+      &-list {
+        border: 1px solid @black;
+        margin-top: 1rem;
+        padding: 1rem;
+        border-radius: 0.25rem;
       }
     }
   }

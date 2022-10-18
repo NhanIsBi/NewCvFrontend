@@ -17,13 +17,16 @@ export class HomepageComponent implements OnInit {
   news = 'Tin tức';
   ngOnInit(): void {}
   page() {
-    this.router.navigate(['./homepage/page/']);
+    this.router.navigate(['./homepage/page']);
   }
   login() {
     this.router.navigate(['./homepage/login']);
   }
+  recruit() {
+    this.router.navigate(['./homepage/recruit']);
+  }
   resign() {
-    this.router.navigate(['./homepage/resign/']);
+    this.router.navigate(['./homepage/resign']);
   }
   onSelectionChangeNews(event: string) {
     if (event === 'Học bổng') {

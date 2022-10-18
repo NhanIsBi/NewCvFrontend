@@ -1,15 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CompetitionComponent } from './competition/competition.component';
-import { EventComponent } from './event/event.component';
 import { HomepageComponent } from './homepage.component';
 import { LoginComponent } from './login/login.component';
-import { NewsScholarshipComponent } from './news/news-scholarship/news-scholarship.component';
+import { NewsScholarshipComponent } from './news-scholarship/news-scholarship.component';
 import { PageComponent } from './page/page.component';
 import { RecruitComponent } from './recruit/recruit.component';
 import { ResignComponent } from './resign/resign.component';
-import { ScholarshipComponent } from './scholarship/scholarship.component';
-
 @NgModule({
   imports: [
     RouterModule.forChild([
@@ -20,11 +16,6 @@ import { ScholarshipComponent } from './scholarship/scholarship.component';
           {
             path: 'page',
             component: PageComponent,
-          },
-
-          {
-            path: ':id',
-            component: NewsScholarshipComponent,
           },
           {
             path: 'recruit',
@@ -37,6 +28,10 @@ import { ScholarshipComponent } from './scholarship/scholarship.component';
           {
             path: 'resign',
             component: ResignComponent,
+          },
+          {
+            path: ':id',
+            component: NewsScholarshipComponent,
           },
         ],
       },
