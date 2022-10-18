@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { newsService } from './services/news.service';
 
 @Component({
   selector: 'app-homepage',
@@ -7,7 +8,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./homepage.component.less'],
 })
 export class HomepageComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private sevices: newsService,
+    private route: ActivatedRoute
+  ) {}
   listNews = ['Học bổng', 'Sự kiện', 'Cuộc thi'];
   news = 'Tin tức';
   ngOnInit(): void {}
@@ -22,11 +27,20 @@ export class HomepageComponent implements OnInit {
   }
   onSelectionChangeNews(event: string) {
     if (event === 'Học bổng') {
-      this.router.navigate(['./homepage/scholarship/']);
+      console.log(event);
+      this.router.navigate(['news-scholarship'], {
+        relativeTo: this.route,
+      });
     } else if (event === 'Sự kiện') {
-      this.router.navigate(['./homepage/event']);
+      console.log(event);
+      this.router.navigate(['event'], {
+        relativeTo: this.route,
+      });
     } else if (event === 'Cuộc thi') {
-      this.router.navigate(['./homepage/competition/']);
+      console.log(event);
+      this.router.navigate(['competition'], {
+        relativeTo: this.route,
+      });
     }
   }
 }

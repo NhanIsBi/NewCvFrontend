@@ -1,18 +1,11 @@
 @import "/src/app/shared/styles/ehiring.less";
 .page {
-  //   background-image: url(/statics/images/login-bg.png);
-  //   background-position: 50%;
-  //   background-size: cover;
-  //   min-height: 100vh;
   margin: 0;
   background-image: url("/assets/images/backlogin.jpg");
-  // background-size: 50%;
-  // background-size: auto;
   background-position: 50%;
   background-position-x: 50%;
   background-position-y: center;
-  background-size: cover;
-  height: 100vh;
+  // background-size: cover;
   // height: 100vh;
   display: flex;
   flex-direction: row-reverse;
@@ -22,7 +15,8 @@
     background-color: white;
     flex: 0 1 calc(300% / 10);
     margin: 3% 3%;
-    padding: 20px 30px 10px;
+    padding: 20px;
+    text-align: -webkit-center;
     .logo {
       margin-top: 10px;
       text-align: center;
@@ -36,14 +30,14 @@
     .login {
       margin: 30px 0;
       font-family: Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;
-      font-size: 20px;
+      font-size: 1.25rem;
       text-align: center;
     }
     .button {
       width: 90%;
       padding: 10px 50px;
       font-family: Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;
-      font-size: 15px;
+      font-size: 1rem;
       text-align: center;
       color: white;
       background-color: #3a5a99;
@@ -55,7 +49,7 @@
       width: 90%;
       padding: 10px 50px;
       font-family: Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;
-      font-size: 15px;
+      font-size: 1rem;
       text-align: center;
       color: white;
       background-color: @green;
@@ -64,13 +58,25 @@
       margin-bottom: 25px;
     }
     .input {
-      width: 80%;
+      width: 90%;
       padding: 10px;
       font-family: Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;
-      font-size: 15px;
+      font-size: 1rem;
       border: 1px solid black;
       border-radius: 5px;
       margin-bottom: 25px;
+    }
+    .dropdown {
+      width: 90%;
+      border: 1px solid black;
+      border-radius: 5px;
+      font-size: 1rem;
+      margin-bottom: 25px;
+      padding: 5px;
+      font-family: Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;
+      .title {
+        color: black;
+      }
     }
     .link {
       color: red;
@@ -78,7 +84,7 @@
       text-align: center;
       width: 80%;
       padding: 5px 5px;
-      font-size: 15px;
+      font-size: 1rem;
       margin-bottom: 25px;
     }
     .resign {
@@ -86,7 +92,7 @@
       text-align: center;
       padding: 5px 5px;
       font-family: Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;
-      font-size: 15px;
+      font-size: 1rem;
       margin-bottom: 25px;
     }
   }
@@ -98,7 +104,7 @@
     color: white;
     font-size: 35px;
     flex: 0 1 calc(600% / 10);
-    margin: 20% 3%;
+    margin: 26% 3%;
     padding: 20px 30px 10px;
     border-radius: 3px;
     display: block;

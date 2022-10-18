@@ -7,6 +7,9 @@ import { competiton, event, scholarship } from '../model/news.model';
   providedIn: 'root',
 })
 export class newsService {
+  isShowScholarship: boolean = false;
+  isShowEvent: boolean = false;
+  isShowCompetition: boolean = false;
   public listviet = [
     'à',
     'á',

@@ -21,21 +21,10 @@ import { ScholarshipComponent } from './scholarship/scholarship.component';
             path: 'page',
             component: PageComponent,
           },
+
           {
-            path: 'scholarship',
-            component: ScholarshipComponent,
-          },
-          {
-            path: 'news-scholarship',
+            path: ':id',
             component: NewsScholarshipComponent,
-          },
-          {
-            path: 'event',
-            component: EventComponent,
-          },
-          {
-            path: 'competition',
-            component: CompetitionComponent,
           },
           {
             path: 'recruit',

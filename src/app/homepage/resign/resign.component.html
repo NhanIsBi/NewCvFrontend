@@ -1,39 +1,23 @@
 <div class="page">
   <div class="page-content">
     <img src="../../assets/images/logo.png" alt="" class="logo" />
-    <!-- <div class="namepage">NewsCV</div> -->
     <div class="login">ĐĂNG KÝ</div>
     <button class="button">Tiếp tục với facebook</button>
     <input placeholder="Họ tên" class="input" />
-    <div>
-      <label for="cars">Giới tính:</label>
-      <select name="cars" id="cars" placeholder="Họ tên">
-        <option value="volvo">Nam</option>
-        <option value="saab">Nữ</option>
-        <option value="opel">Giới tính khác</option>
-      </select>
+    <div class="dropdown">
+      <ng-template #title>
+        <span class="title"> {{ gender }}</span></ng-template
+      >
+      <ehiring-dropdown
+        [temRef]="title"
+        [data]="listgender"
+        (selectionChange)="onSelectionChange($event)"
+      ></ehiring-dropdown>
     </div>
-    <!-- <div>
-      <a nz-dropdown [nzDropdownMenu]="menu">
-        Hover me, Click menu item
-        <span nz-icon nzType="down"></span>
-      </a>
-      <nz-dropdown-menu #menu="nzDropdownMenu">
-        <ul nz-menu>
-          <li nz-menu-item (click)="log('1st menu item')">1st menu item</li>
-          <li nz-menu-item (click)="log('2nd menu item')">2nd menu item</li>
-          <li nz-menu-item (click)="log('3rd menu item')">3rd menu item</li>
-        </ul>
-      </nz-dropdown-menu>
-    </div> -->
-
     <input placeholder="Email" class="input" />
     <input placeholder="Nhập lại email" class="input" />
     <input type="password" placeholder="Mật khẩu" class="input" />
     <button class="buttonlg">Đăng ký</button>
-    <!-- <div>
-      <a href="" class="link"> <span>Quên mật khẩu</span> </a>
-    </div> -->
     <div class="resign">
       Đã có tài khoản?<a href="" class="link">Đăng nhập ngay</a>
     </div>
