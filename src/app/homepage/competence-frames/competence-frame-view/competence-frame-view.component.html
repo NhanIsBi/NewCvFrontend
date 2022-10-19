@@ -1,0 +1,82 @@
+<div class="layout">
+  <app-right-side [isViewLayout]="true" style="height: 100%">
+    <button
+      button
+      class="button-primary"
+      (click)="cancel()"
+      nz-popover
+      nzPopoverContent="Quay lại"
+      nzPopoverPlacement="topLeft"
+      nzPopoverOverlayClassName="customPopOver"
+    >
+      <span nz-icon nzType="svg:arrow-left"></span>
+    </button>
+
+    <button
+      button
+      class="button-primary"
+      (click)="update()"
+      nz-popover
+      nzPopoverContent="Chỉnh sửa"
+      nzPopoverPlacement="top"
+      nzPopoverOverlayClassName="customPopOver"
+    >
+      <span nz-icon nzType="svg:edit"></span>
+    </button>
+    <button
+      button
+      class="button-primary"
+      (click)="duplicateClick()"
+      nz-popover
+      nzPopoverContent="copy"
+      nzPopoverPlacement="top"
+      nzPopoverOverlayClassName="customPopOver"
+    >
+      <span nz-icon nzType="svg:copy-alt"></span>
+    </button>
+    <button
+      button
+      class="button-primary"
+      (click)="delete()"
+      nz-popover
+      nzPopoverContent="xóa khung"
+      nzPopoverPlacement="top"
+      nzPopoverOverlayClassName="customPopOver"
+    >
+      <span nz-icon nzType="svg:trash"> </span>
+    </button>
+    <div container-title>
+      {{ (comFrameInfo$ | async)?.name }}
+    </div>
+    <div container-body>
+      <div class="content list-section">
+        <app-section title="Mô tả">
+          <div container>
+            <textarea
+              nz-input
+              placeholder="Nhập mô tả"
+              [value]="(comFrameInfo$ | async)?.['description']"
+              style="
+                border-color: #1890ff;
+                resize: none;
+                border-radius: 8px;
+                font-weight: 400;
+                padding: 1rem;
+                pointer-events: none;
+              "
+            ></textarea>
+          </div>
+        </app-section>
+        <app-section title="Danh sách năng lực" [collapsible]="false">
+          <div section-container class="competence-tags">
+            <span
+              class="tag"
+              *ngFor="let item of (comFrameInfo$ | async)?.['competences']"
+              >{{ item }}</span
+            >
+          </div>
+        </app-section>
+      </div>
+    </div>
+  </app-right-side>
+</div>

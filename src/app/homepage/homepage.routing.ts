@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CompetenceFramesEntryComponent } from './competence-frames/competence-frames-entry/competence-frames-entry.component';
 import { HomepageComponent } from './homepage.component';
 import { LoginComponent } from './login/login.component';
 import { NewsScholarshipComponent } from './news-scholarship/news-scholarship.component';
@@ -28,6 +29,10 @@ import { ResignComponent } from './resign/resign.component';
           {
             path: 'resign',
             component: ResignComponent,
+          },
+          {
+            path: 'competence-frames',
+            component: CompetenceFramesEntryComponent,
           },
           {
             path: ':id',

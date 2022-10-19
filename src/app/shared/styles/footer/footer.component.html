@@ -1,0 +1,25 @@
+<div
+  class="absolute bottom-0 bg-white border-t-2 z-50"
+  [ngClass]="customClassName"
+>
+  <div class="relative flex items-center h-12 flex-row-reverse justify-center">
+    <div class="absolute left-0 flex items-center h-fit">
+      <ng-container [ngTemplateOutlet]="leftCornerTemplate"></ng-container>
+    </div>
+    <nz-pagination
+      [nzTotal]="total"
+      nzShowSizeChanger
+      [nzSimple]="simple"
+      nzPageSize="15"
+      [nzPageSizeOptions]="[120, 90, 60, 30, 15]"
+      (nzPageIndexChange)="onPageIndexChange($event)"
+      (nzPageSizeChange)="onPageSizeChange($event)"
+      [nzResponsive]="true"
+      class="w-fit fixed h-fit customPagination"
+    >
+    </nz-pagination>
+    <div class="absolute right-0 flex items-center h-fit">
+      <ng-container [ngTemplateOutlet]="rightCornerTemplate"></ng-container>
+    </div>
+  </div>
+</div>

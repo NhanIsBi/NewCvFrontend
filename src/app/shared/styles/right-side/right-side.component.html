@@ -1,0 +1,66 @@
+<div class="flex justify-between w-full h-14 mb-4 items-center">
+  <ng-container *ngIf="isViewLayout; else editLayout">
+    <div class="list-button">
+      <ng-content select="[button]"></ng-content>
+    </div>
+  </ng-container>
+  <ng-template #editLayout>
+    <div class="flex-auto">
+      <h3 class="text-lg font-bold mb-1">
+        {{ status }}
+      </h3>
+      <div class="text-primary-1">
+        {{ sectionName }}
+      </div>
+    </div>
+    <div class="list-button flex-none">
+      <button
+        class="button-secondary"
+        style="width: 10rem"
+        (click)="onCancel()"
+      >
+        Hủy
+      </button>
+      <button
+        class="button-primary"
+        style="width: 10rem"
+        (click)="onSubmit()"
+        #test
+      >
+        Lưu
+      </button>
+    </div>
+  </ng-template>
+</div>
+<div
+  class="rounded-t-lg relative"
+  style="height: calc(100% - 4.5rem); overflow-y: hidden"
+>
+  <ng-content select="[container-body-custom]"></ng-content>
+  <div
+    class="flex items-center h-14 p-6 text-xl font-bold header-list"
+    [ngClass]="
+      isPrimary ? 'bg-primary-1 text-white' : 'bg-secondary-5 text-primary-1'
+    "
+    *ngIf="containerTitle"
+  >
+    <ng-container *ngIf="loading; else showTitle">
+      <nz-skeleton
+        [nzParagraph]="{ rows: 1 }"
+        [nzTitle]="false"
+        [nzActive]="true"
+        style="width: 16rem"
+      ></nz-skeleton
+    ></ng-container>
+    <ng-template #showTitle>
+      <ng-content select="[container-title]"></ng-content>
+    </ng-template>
+  </div>
+  <div
+    class="p-6 pb-20 bg-white overflow-scroll"
+    (scroll)="onScroll()"
+    [ngStyle]="{ height: containerTitle ? 'calc(100% - 3.5rem)' : '100%' }"
+  >
+    <ng-content select="[container-body]"></ng-content>
+  </div>
+</div>

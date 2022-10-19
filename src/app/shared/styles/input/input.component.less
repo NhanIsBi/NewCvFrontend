@@ -1,0 +1,16 @@
+@import url("/src/app/shared/styles/generate-style.less");
+
+.input {
+  height: 40px;
+  border: 1px solid @mid;
+  border-radius: 0.5rem;
+  padding: 0 1rem;
+  display: flex;
+  &:focus-within {
+    border-color: @primary-1;
+  }
+}
+input {
+  outline: none;
+  width: 100%;
+}

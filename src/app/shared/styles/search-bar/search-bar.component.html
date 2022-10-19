@@ -1,0 +1,46 @@
+<label
+  for="searchBar"
+  class="input-secondary search px-3 mr-2 py-1 flex items-center"
+  [ngClass]="isShown ? '' : 'disable'"
+>
+  <div class="flex-auto flex overflow-hidden" style="width: calc(100% - 1rem)">
+    <div
+      class="list-tag-custom overflow-scroll flex-none"
+      style="max-width: calc(100% - 7rem)"
+    >
+      <div
+        class="tag-secondary small"
+        style="width: auto"
+        *ngFor="let search of listOfSearches; index as idx"
+      >
+        <div style="white-space: nowrap">{{ search }}</div>
+        <button (click)="onClose(idx)">
+          <span nz-icon nzType="svg:cross-small" class="ml-1"></span>
+        </button>
+      </div>
+    </div>
+    <input
+      id="searchBar"
+      class="h-full focus:outline-none bg-transparent rounded-lg px-2 w-full flex-auto"
+      placeholder="Tìm kiếm..."
+      [ngModel]="searchText"
+      (ngModelChange)="onChangeInput($event)"
+      (keydown.enter)="onSearchInputEnter()"
+      [ngStyle]="{
+        'background-color': searchText[0] === '#' ? '#003a8c' : 'transparent',
+        color: searchText[0] === '#' ? 'white' : 'inherit'
+      }"
+      style="height: 1.75rem; min-width: 7rem"
+      autofocus
+    />
+  </div>
+  <button
+    *ngIf="listOfSearches.length > 1; else search"
+    (click)="$event.stopPropagation(); onClear()"
+  >
+    <span nz-icon nzType="close" nzTheme="outline" class="flex-none"></span>
+  </button>
+  <ng-template #search>
+    <span nz-icon nzType="search" nzTheme="outline" class="flex-none"></span>
+  </ng-template>
+</label>

@@ -1,0 +1,26 @@
+<ng-container *ngIf="collapsible; else unCollapsible">
+  <div ehiringCollapsible>
+    <div ehiringCollapsibleTitle>
+      <div class="text-xl text-primary-1 font-bold">
+        {{ title }}
+        <span nz-icon nzType="svg:caret-down" class="collapse-icon"></span>
+      </div>
+    </div>
+    <div ehiringCollapsibleContent>
+      <ng-content select="[container]"></ng-content>
+    </div>
+  </div>
+</ng-container>
+<ng-template #unCollapsible>
+  <div class="text-xl text-primary-1 font-bold">
+    <ng-container *ngIf="title; else unTitle"
+      >{{ title }} <ng-content select="[icon]"></ng-content
+    ></ng-container>
+    <ng-template #unTitle>
+      <ng-content select="[section-inputTitle]"></ng-content>
+    </ng-template>
+  </div>
+  <div class="mt-6 flex-auto">
+    <ng-content select="[section-container]"></ng-content>
+  </div>
+</ng-template>
