@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CompetenceFrameFormComponent } from './competence-frames/competence-frame-form/competence-frame-form.component';
+import { CompetenceFrameViewComponent } from './competence-frames/competence-frame-view/competence-frame-view.component';
 import { CompetenceFramesEntryComponent } from './competence-frames/competence-frames-entry/competence-frames-entry.component';
 import { HomepageComponent } from './homepage.component';
 import { LoginComponent } from './login/login.component';
@@ -32,8 +34,40 @@ import { ResignComponent } from './resign/resign.component';
           },
           {
             path: 'competence-frames',
-            component: CompetenceFramesEntryComponent,
+            loadChildren: () =>
+              import('./competence-frames/competence-frames.module').then(
+                (m) => m.CompetenceFrameModule
+              ),
+            // children: [
+            //   {
+            //     path: 'homepage',
+            //     component: HomepageComponent,
+            //   },
+            // ],
           },
+          // {
+          //   path: 'competence-frames',
+          //   component: CompetenceFramesEntryComponent,
+          //   children: [
+          //     {
+          //       path: 'create',
+          //       component: CompetenceFrameFormComponent,
+          //     },
+          //     {
+          //       path: ':comFrameId',
+          //       children: [
+          //         {
+          //           path: '',
+          //           component: CompetenceFrameViewComponent,
+          //         },
+          //         {
+          //           path: 'edit',
+          //           component: CompetenceFrameFormComponent,
+          //         },
+          //       ],
+          //     },
+          //   ],
+          // },
           {
             path: ':id',
             component: NewsScholarshipComponent,

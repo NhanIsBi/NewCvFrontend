@@ -109,7 +109,7 @@ export class CompetenceFramesEntryComponent implements OnInit, OnDestroy {
     this.service.comframe = obj;
     this.selectedCompetenceFrame = value;
 
-    this.router.navigate(['./competence-frames/' + value]);
+    this.router.navigate(['.homepage/competence-frames/' + value]);
   }
 
   getSearchKeyword() {
@@ -178,16 +178,18 @@ export class CompetenceFramesEntryComponent implements OnInit, OnDestroy {
   deleteById(id: string) {
     this.service.deleteById(id);
     this.message.success('Xoá thành công khung năng lực');
-    this.router.navigate(['./competence-frames']);
+    this.router.navigate(['.homepage/competence-frames']);
     this.isDetailShown = false;
     this.getPageList(this.currentPage);
   }
   createCompetenceFrame() {
+    console.log('create');
     this.service.conditionDup = false;
     this.router
-      .navigate(['./competence-frames'], { skipLocationChange: true })
+      .navigate(['.homepage/competence-frames'], { skipLocationChange: true })
       .then(() => {
-        this.router.navigate(['./competence-frames/create']);
+        console.log('create1');
+        this.router.navigate(['.homepage/competence-frames/create']);
       });
 
     this.isDetailShown = true;

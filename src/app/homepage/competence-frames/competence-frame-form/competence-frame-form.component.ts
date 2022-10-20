@@ -84,7 +84,7 @@ export class CompetenceFrameFormComponent {
   }
 
   public cancel() {
-    this.router.navigate(['./competence-frames']);
+    this.router.navigate(['.homepage/competence-frames']);
     this.competenceFrameCom.isDetailShown = false;
   }
   public save() {
@@ -103,7 +103,9 @@ export class CompetenceFrameFormComponent {
 
       this.competenceFrameCom.getPageList(0, true);
       this.service.comframe = this.currentComFrame;
-      this.router.navigate(['./competence-frames/' + this.currentComFrame.id]);
+      this.router.navigate([
+        '.homepage/competence-frames/' + this.currentComFrame.id,
+      ]);
       // this.cancel();
     } else if (this.currentComFrame.name === '') {
       this.message.error('Vui lòng nhập tên bộ khung năng lực!', {
