@@ -23,7 +23,8 @@ export class HomepageComponent implements OnInit {
     this.router.navigate(['./homepage/login']);
   }
   recruit() {
-    this.router.navigate(['./homepage/recruit']);
+    this.router.navigate(['./homepage/competence-frames']);
+    // this.router.navigate(['./homepage/recruit']);
   }
   resign() {
     this.router.navigate(['./homepage/resign']);

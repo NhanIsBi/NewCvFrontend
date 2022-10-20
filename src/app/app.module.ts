@@ -11,6 +11,7 @@ import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { SharedModule } from './shared/styles/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HomepageModule } from './homepage/homepage.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +27,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     NzDropDownModule,
     SharedModule,
     HttpClientModule,
+    HomepageModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

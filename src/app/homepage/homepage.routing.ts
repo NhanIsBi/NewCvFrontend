@@ -38,36 +38,7 @@ import { ResignComponent } from './resign/resign.component';
               import('./competence-frames/competence-frames.module').then(
                 (m) => m.CompetenceFrameModule
               ),
-            // children: [
-            //   {
-            //     path: 'homepage',
-            //     component: HomepageComponent,
-            //   },
-            // ],
           },
-          // {
-          //   path: 'competence-frames',
-          //   component: CompetenceFramesEntryComponent,
-          //   children: [
-          //     {
-          //       path: 'create',
-          //       component: CompetenceFrameFormComponent,
-          //     },
-          //     {
-          //       path: ':comFrameId',
-          //       children: [
-          //         {
-          //           path: '',
-          //           component: CompetenceFrameViewComponent,
-          //         },
-          //         {
-          //           path: 'edit',
-          //           component: CompetenceFrameFormComponent,
-          //         },
-          //       ],
-          //     },
-          //   ],
-          // },
           {
             path: ':id',
             component: NewsScholarshipComponent,
