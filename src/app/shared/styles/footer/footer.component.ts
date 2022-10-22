@@ -5,6 +5,7 @@ import {
   Output,
   TemplateRef,
 } from '@angular/core';
+import { fa_IR, NzI18nService, vi_VN } from 'ng-zorro-antd/i18n';
 
 @Component({
   selector: 'app-footer',
@@ -21,8 +22,11 @@ export class FooterComponent {
   @Output() pageIndexChange = new EventEmitter();
   @Output() pageSizeChange = new EventEmitter();
 
-  constructor() {
+  constructor(private i18n: NzI18nService) {
     console.log(this.rightCornerTemplate);
+  }
+  ngOnInit(): void {
+    this.i18n.setLocale(vi_VN);
   }
   onPageIndexChange(event: number) {
     this.pageIndexChange.emit(event);

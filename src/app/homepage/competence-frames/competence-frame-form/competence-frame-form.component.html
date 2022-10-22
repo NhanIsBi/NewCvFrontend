@@ -1,7 +1,15 @@
 <div class="layout">
   <app-right-side
+    [isPrimary]="false"
     [status]="
-      id !== '' && id !== undefined ? 'Chỉnh sửa năng lực ' : 'Tạo mới năng lực'
+      currentComFrame.name !== '' && currentComFrame.name !== undefined
+        ? 'Chỉnh sửa năng lực '
+        : 'Tạo mới năng lực'
+    "
+    [sectionName]="
+      currentComFrame.name !== '' && currentComFrame.name !== undefined
+        ? currentComFrame.name
+        : ''
     "
     (cancel)="cancel()"
     (save)="save()"
