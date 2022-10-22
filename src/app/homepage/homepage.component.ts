@@ -31,6 +31,9 @@ export class HomepageComponent implements OnInit {
   resign() {
     this.router.navigate(['./homepage/resign']);
   }
+  info() {
+    this.router.navigate(['./homepage/infomation']);
+  }
   onSelectionChangeNews(event: string) {
     if (event === 'Học bổng') {
       console.log(event);

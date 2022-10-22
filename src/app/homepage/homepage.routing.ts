@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomepageComponent } from './homepage.component';
+import { InfomationComponent } from './infomation/infomation.component';
 import { LoginComponent } from './login/login.component';
 import { NewsScholarshipComponent } from './news-scholarship/news-scholarship.component';
 import { PageComponent } from './page/page.component';
@@ -23,6 +24,10 @@ import { ResignComponent } from './resign/resign.component';
           {
             path: 'resign',
             component: ResignComponent,
+          },
+          {
+            path: 'infomation',
+            component: InfomationComponent,
           },
           {
             path: 'competence-frames',
