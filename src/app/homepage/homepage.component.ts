@@ -8,6 +8,7 @@ import { newsService } from './services/news.service';
   styleUrls: ['./homepage.component.less'],
 })
 export class HomepageComponent implements OnInit {
+  ishow = false;
   constructor(
     private router: Router,
     private sevices: newsService,
@@ -23,6 +24,7 @@ export class HomepageComponent implements OnInit {
     this.router.navigate(['./homepage/login']);
   }
   recruit() {
+    this.ishow = true;
     this.router.navigate(['./homepage/competence-frames']);
     // this.router.navigate(['./homepage/recruit']);
   }

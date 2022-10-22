@@ -39,9 +39,7 @@
   <ng-content select="[container-body-custom]"></ng-content>
   <div
     class="flex items-center h-14 p-6 text-xl font-bold header-list"
-    [ngClass]="
-      isPrimary ? 'bg-primary-1 text-white' : 'bg-secondary-5 text-primary-1'
-    "
+    [ngClass]="isPrimary ? 'isPrimary1' : 'isPrimary2'"
     *ngIf="containerTitle"
   >
     <ng-container *ngIf="loading; else showTitle">
