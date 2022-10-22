@@ -1,13 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CompetenceFrameFormComponent } from './competence-frames/competence-frame-form/competence-frame-form.component';
-import { CompetenceFrameViewComponent } from './competence-frames/competence-frame-view/competence-frame-view.component';
-import { CompetenceFramesEntryComponent } from './competence-frames/competence-frames-entry/competence-frames-entry.component';
 import { HomepageComponent } from './homepage.component';
 import { LoginComponent } from './login/login.component';
 import { NewsScholarshipComponent } from './news-scholarship/news-scholarship.component';
 import { PageComponent } from './page/page.component';
-import { RecruitComponent } from './recruit/recruit.component';
 import { ResignComponent } from './resign/resign.component';
 @NgModule({
   imports: [
@@ -19,10 +15,6 @@ import { ResignComponent } from './resign/resign.component';
           {
             path: 'page',
             component: PageComponent,
-          },
-          {
-            path: 'recruit',
-            component: RecruitComponent,
           },
           {
             path: 'login',
@@ -40,6 +32,7 @@ import { ResignComponent } from './resign/resign.component';
               ),
           },
           {
+            //onSelectionChangeNews();
             path: ':id',
             component: NewsScholarshipComponent,
           },
