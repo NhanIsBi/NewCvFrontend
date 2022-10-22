@@ -272,7 +272,7 @@ export class CompetenceFramesService {
     this.listCom.push(
       Object.assign(new ComFrame(), {
         id: 'r7nh4ssd8js83nrhffhs2vb0',
-        name: 'Pending Pool',
+        name: 'Pending Pool-copy',
         description:
           'Đây là Talent Pool mặc định được hệ thống tự động tạo ra để lưu thông tin ứng viên trong trường hợp không thể tìm thấy bài đăng tuyển tương ứng.',
         competences: [
@@ -289,7 +289,7 @@ export class CompetenceFramesService {
     this.listCom.push(
       Object.assign(new ComFrame(), {
         id: 'j8dh45gd8js83nrh8dhs8h3e',
-        name: 'DevOps',
+        name: 'DevOps-copy',
         description: 'Đây là nhóm DevOps',
         competences: [
           'chơi2',
@@ -305,7 +305,7 @@ export class CompetenceFramesService {
     this.listCom.push(
       Object.assign(new ComFrame(), {
         id: '6295bfd471ea517f1c2e4593',
-        name: 'Hành chính - HR',
+        name: 'Hành chính - HR-copy',
         description: 'Đây là nhóm Hành chính - nhân sự',
         competences: [
           'chơi3',
@@ -321,7 +321,7 @@ export class CompetenceFramesService {
     this.listCom.push(
       Object.assign(new ComFrame(), {
         id: '629aa6e9fd31520018e406bb',
-        name: 'BrSE',
+        name: 'BrSE-copy',
         description: 'Đây là nhóm BrSE',
         competences: [
           'chơi4',
@@ -337,7 +337,7 @@ export class CompetenceFramesService {
     this.listCom.push(
       Object.assign(new ComFrame(), {
         id: '629aa6e9fd31520018e406bt',
-        name: 'DevOps',
+        name: 'DevOps-copy',
         description: 'Đây là nhóm DevOps',
         competences: [
           'chơi4',
@@ -353,7 +353,7 @@ export class CompetenceFramesService {
     this.listCom.push(
       Object.assign(new ComFrame(), {
         id: '629ebee1fd31520018e58d30',
-        name: 'Kinh doanh',
+        name: 'Kinh doanh-copy',
         description: 'Đây là nhóm Kinh doanh',
         competences: [
           'chơi',
