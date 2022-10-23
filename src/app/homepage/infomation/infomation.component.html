@@ -1,1 +1,173 @@
-<p>infomation works!</p>
+<div class="layout">
+  <div class="layout-left">
+    <div class="layout-left-header">
+      <div class="tab selected">Thông tin cá nhân</div>
+    </div>
+
+    <div class="layout-left-body">
+      <div class="layout-left-body-left">
+        <div collapsible>
+          <div collapsibleTitle>
+            Thông tin ứng tuyển
+            <i class="collapsible-icon" nz-icon nzType="svg:caret-down"></i>
+          </div>
+          <div collapsibleContent>
+            <div class="box-shadow">
+              <div class="recruit-apply-information">
+                <div class="recruit-apply-information-item">
+                  <span nz-icon nzType="svg:job" eIconSize="1.25rem"></span>
+                  <span>Vị trí ứng tuyển:</span>
+                  <a>UX UI Designer</a>
+                </div>
+                <div class="recruit-apply-information-item">
+                  <span nz-icon nzType="svg:dollar" eIconSize="1.25rem"></span>
+                  <span>Salary Range</span>
+                </div>
+                <div class="recruit-apply-information-item">
+                  <span nz-icon nzType="svg:job" eIconSize="1.25rem"></span>
+                  <span>Ngày ứng tuyển</span>
+                </div>
+                <div class="recruit-apply-information-item">
+                  <span nz-icon nzType="svg:user" eIconSize="1.25rem"></span>
+                  <span>Người phụ trách</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div collapsible>
+          <div collapsibleTitle>
+            Đánh giá năng lực
+            <i class="collapsible-icon" nz-icon nzType="svg:caret-down"></i>
+          </div>
+          <div collapsibleContent>
+            <div class="box-shadow">
+              <div class="competence-evaluation">
+                <div class="competence-evaluation-title">
+                  <span><i nz-icon nzType="svg:info"></i>Design</span>
+                  <nz-rate
+                    nzAllowHalf
+                    nzDisabled
+                    [ngModel]="4"
+                    [nzCharacter]="starIcon"
+                  ></nz-rate>
+                </div>
+
+                <div class="competence-evaluation-content">
+                  <textarea
+                    class="textarea review"
+                    placeholder="Nhập mô tả"
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="layout-left-body-right">
+        <div collapsible class="title">
+          <div collapsibleTitle>Bài đã viết</div>
+        </div>
+        <div>Nội dung</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="layout-right">
+    <div class="layout-right-header">
+      <div class="section-top">
+        <div class="recruit-avatar">
+          <img src="/assets/images/avatar-female.svg" />
+        </div>
+
+        <div class="recruit-name">Nguyễn Thảo My</div>
+
+        <div class="recruit-rating">
+          <nz-rate [ngModel]="2.5" nzAllowHalf></nz-rate>
+
+          <span>5.0./5.0 - 10 recommended</span>
+        </div>
+      </div>
+
+      <div class="h-line"></div>
+
+      <div class="section-bottom">
+        <button class="button-secondary">Xem CV gốc</button>
+
+        <div class="recruit-actions">
+          <button class="button-secondary">
+            <span nz-icon nzType="svg:user-remove"></span>Loại nhanh
+          </button>
+          <button class="button-secondary">
+            <span nz-icon nzType="svg:angle-double-small-right"></span>Next step
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="layout-right-body">
+      <div class="section">
+        <div class="title">Thông tin chung</div>
+        <div class="content recruit-information">
+          <div class="item">
+            <span nz-icon nzType="svg:gender"></span><span>Nữ</span>
+          </div>
+          <div class="item">
+            <span nz-icon nzType="svg:calendar"></span><span>20/02/2002</span>
+          </div>
+          <div class="item">
+            <span nz-icon nzType="svg:mail"></span
+            ><span>Thaomyqt2005@gmail.com</span>
+          </div>
+          <div class="item">
+            <span nz-icon nzType="svg:phone-call"></span
+            ><span>09090909090</span>
+          </div>
+          <div class="item">
+            <span nz-icon nzType="svg:home-location-alt"></span
+            ><span>District 2, HCMC</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="h-line"></div>
+
+      <div class="section">
+        <div class="title">Tags</div>
+        <div class="content tags">
+          <div class="talent-tag">Figma</div>
+
+          <div class="talent-tag">Prototype</div>
+
+          <div class="talent-tag">Bla bla</div>
+
+          <div class="talent-tag">hihi</div>
+
+          <div class="talent-tag">Wireframe</div>
+
+          <div class="talent-tag">AI</div>
+
+          <div class="talent-tag">Photoshop</div>
+        </div>
+      </div>
+
+      <div class="h-line"></div>
+
+      <div class="section">
+        <div class="title">Talent Pool</div>
+        <div class="content tags">
+          <div class="pool-tag-1">Tech</div>
+
+          <div class="pool-tag-2">Design</div>
+
+          <div class="pool-tag-3">Product</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #starIcon>
+  <span nz-icon nzType="svg:star-fill" eIconSize="1.25rem"></span
+></ng-template>

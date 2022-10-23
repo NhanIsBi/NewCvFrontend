@@ -1,0 +1,322 @@
+@import "/src/app/shared/styles/ehiring.less";
+
+.layout {
+  width: 98, 5vw;
+  height: 100vh;
+
+  display: flex;
+  background: @light;
+
+  &-left {
+    width: calc(100% - 21.25rem);
+    flex: 0 0 calc(100% - 21.25rem);
+
+    display: flex;
+    flex-direction: column;
+
+    &-header {
+      width: 100%;
+      height: 4.375rem;
+
+      flex: 0 0 4.375rem;
+
+      background: @white;
+
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      & > .tab {
+        .text-style-bold(7);
+        color: @black;
+
+        padding: 0 1.5rem;
+
+        &.selected {
+          color: @primary-1;
+        }
+      }
+    }
+
+    &-body {
+      height: calc(100% - 4.375rem);
+
+      flex: 0 1 100%;
+      padding: 2rem 2rem 0 0;
+
+      display: flex;
+      flex-direction: row;
+      gap: 2rem;
+
+      &-left {
+        flex: 0 0 40%;
+
+        background: @white;
+        border-radius: 0 @border-radius-1 0 0;
+
+        padding: 2rem;
+
+        & > *:not(:first-child) {
+          margin-top: 2rem;
+        }
+      }
+
+      &-right {
+        .title {
+          text-align: -webkit-center;
+        }
+
+        flex: 0 1 60%;
+        max-width: calc(60% - 2rem);
+
+        background: @white;
+      }
+    }
+  }
+
+  &-right {
+    width: 21.25rem;
+    flex: 0 0 21.25rem;
+    background: @white;
+
+    display: flex;
+    flex-direction: column;
+
+    &-header {
+      flex: 0 0 auto;
+
+      background: @primary-1;
+      padding: 1rem;
+      border-radius: 0 0 @border-radius-4 @border-radius-4;
+
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+
+      & > .section-top {
+        padding: 1rem 0 0 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        & > .recruit-avatar {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          & > img {
+            max-height: 6.25rem;
+            max-width: 6.25rem;
+            border-radius: 999rem;
+          }
+        }
+
+        & > .recruit-name {
+          .text-style-bold(7);
+          color: @white;
+
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        & > .recruit-rating {
+          color: @white;
+          .text-style(8);
+
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 0.5rem;
+
+          &-recommended {
+            color: @white;
+          }
+        }
+      }
+
+      & > .section-bottom {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        & > .recruit-actions {
+          display: flex;
+          flex-direction: row;
+          gap: 1rem;
+
+          & > button {
+            flex: 0 1 50%;
+
+            & > i {
+              margin-right: 0.5rem;
+            }
+          }
+        }
+      }
+    }
+
+    &-body {
+      padding: 1.5rem 1rem;
+
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      flex: 1 1 auto;
+      overflow-y: overlay;
+
+      & > .section {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        & > .title {
+          .text-style-bold(5);
+        }
+
+        & > .content {
+          &.recruit-information {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            & > .item {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+
+              gap: 0.5rem;
+
+              .text-style(8);
+              color: @black;
+            }
+          }
+
+          &.tags {
+            display: flex;
+            flex-direction: row;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+          }
+        }
+      }
+
+      & > .h-line {
+        flex: 0 0 0.0625rem;
+        background: @mid;
+      }
+    }
+  }
+}
+
+[collapsible] {
+  [collapsibleTitle] {
+    width: fit-content;
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .non-highlightable();
+    .text-style-bold(5);
+
+    color: @black;
+
+    .collapsible-icon {
+      transition: 200ms;
+      margin-left: 1rem;
+    }
+  }
+
+  [collapsibleContent] {
+    & > *:first-child {
+      margin-top: 1rem;
+    }
+  }
+}
+
+.box-shadow {
+  box-shadow: @shadow-3;
+  border-radius: @border-radius-1;
+  padding: 1.5rem;
+
+  .recruit-apply-information {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &-item {
+      display: flex;
+      flex-direction: row;
+
+      gap: 0.5rem;
+
+      .text-style(7);
+      color: @dark;
+    }
+  }
+
+  .competence-evaluation {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    &-title {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      .text-style-bold(7);
+
+      & > span > i[eIcon] {
+        margin-right: 0.5rem;
+      }
+    }
+
+    &-content {
+      & > .review {
+        width: 100%;
+        height: 5rem;
+
+        padding: 1rem;
+      }
+    }
+  }
+}
+
+.h-line {
+  height: 0.0625rem;
+  width: auto;
+  background: @white;
+}
+
+.talent-tag {
+  .text-style(9);
+  color: @primary-1;
+
+  background: @secondary-5;
+
+  border: 1px solid @primary-1;
+  border-radius: @border-radius-2;
+  padding: 0.25rem 0.75rem;
+}
+
+@pool-colors: @secondary-7, @secondary-4, @secondary-2;
+@pool-backgrounds: @secondary-6, @secondary-8, @secondary-9;
+
+each(@pool-colors, {
+  .pool-tag-@{index} {
+    .text-style(9);
+    text-decoration: underline;
+    color: @value;
+  
+    background: extract(@pool-backgrounds, @index);
+  
+    border-radius: @border-radius-1;
+    padding: 0.25rem 0.75rem;
+  }
+});

@@ -9,9 +9,11 @@ import { SharedModule } from '../shared/styles/shared.module';
 import { NewsScholarshipComponent } from './news-scholarship/news-scholarship.component';
 import { NzOverlayModule } from 'ng-zorro-antd/core/overlay';
 import { CompetenceFrameModule } from './competence-frames/competence-frames.module';
-
+import { NzRateModule } from 'ng-zorro-antd/rate';
+import { InfomationComponent } from './infomation/infomation.component';
+import { UiCommonModule } from '../shared/lib/ui-common.module';
 @NgModule({
-  declarations: [PageComponent, NewsScholarshipComponent],
+  declarations: [PageComponent, NewsScholarshipComponent, InfomationComponent],
   imports: [
     CommonModule,
     HomepageRoutingModule,
@@ -21,6 +23,8 @@ import { CompetenceFrameModule } from './competence-frames/competence-frames.mod
     SharedModule,
     NzOverlayModule,
     CompetenceFrameModule,
+    NzRateModule,
+    UiCommonModule,
   ],
 })
 export class HomepageModule {}
