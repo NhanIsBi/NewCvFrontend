@@ -18,3 +18,13 @@ export class competiton {
   location = '';
   descriptions = '';
 }
+export class user {
+  email = '';
+  password = '';
+}
+export class ResponseObject {
+  errorCode = '';
+  status: Number = new Number();
+  message = '';
+  data: any;
+}

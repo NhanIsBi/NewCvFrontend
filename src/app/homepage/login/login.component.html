@@ -4,9 +4,18 @@
     <!-- <div class="namepage">NewsCV</div> -->
     <div class="login">ĐĂNG NHẬP</div>
     <button class="button">Tiếp tục với facebook</button>
-    <input placeholder="Tên đăng nhập hoặc email" class="input" />
-    <input type="password" placeholder="Mật khẩu" class="input" />
-    <button class="buttonlg">Đăng nhập</button>
+    <input
+      placeholder="Tên đăng nhập hoặc email"
+      class="input"
+      [(ngModel)]="email"
+    />
+    <input
+      type="password"
+      placeholder="Mật khẩu"
+      class="input"
+      [(ngModel)]="pass"
+    />
+    <button class="buttonlg" (click)="login()">Đăng nhập</button>
     <div>
       <a href="" class="link"> <span>Quên mật khẩu</span> </a>
     </div>

@@ -1,7 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { competiton, event, scholarship } from '../model/news.model';
+import { Observable, of, tap } from 'rxjs';
+import {
+  competiton,
+  event,
+  ResponseObject,
+  scholarship,
+} from '../model/news.model';
 
 @Injectable({
   providedIn: 'root',
@@ -89,7 +94,19 @@ export class newsService {
     this.initlistEvent();
     this.initlistCompetiton();
   }
-  urlPath = 'http://localhost:3000/' + 'criteria';
+  urlPath =
+    'http://newscv-env.eba-3k8gbtyu.ap-southeast-1.elasticbeanstalk.com';
+  login(data: any) {
+    // fetch(`${this.urlPath + '/api/v1/login'}`)
+    //   .then((response) => response.json())
+    //   .then((data) => console.log(data));
+    let result = this.http
+      .post<ResponseObject>(`${this.urlPath + '/api/v1/login'}`, data)
+      //.pipe(tap((response: ResponseObject) => console.log(response)));
+      .subscribe((a: ResponseObject) => console.log(a));
+    console.log(result);
+    return result;
+  }
   getListScholarship() {
     return of(this.listScholarship);
   }
