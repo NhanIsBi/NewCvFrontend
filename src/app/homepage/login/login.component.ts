@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   email = '';
   pass = '';
   user: user = new user();
+  subjects: any;
   constructor(
     private service: newsService,
     private message: NzMessageService,
@@ -24,9 +25,17 @@ export class LoginComponent implements OnInit {
   login() {
     this.user.email = this.email;
     this.user.password = this.pass;
-    let a = this.service.login(this.user);
+    this.service.login(this.user).subscribe((res) => {
+      this.subjects = res.data;
+      console.log(this.subjects);
+      if (this.subjects == null) {
+        this.message.success('Đăng nhập thất bại');
+      } else {
+        this.message.success('Đăng nhập thành công');
+        this.router.navigate(['./homepage/page']);
+      }
+    });
 
-    this.message.success('Thêm thành công');
     // this.router.navigate(['./homepage/page']);
   }
 }

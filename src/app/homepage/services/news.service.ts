@@ -1,17 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of, tap } from 'rxjs';
+import { catchError, Observable, of, tap } from 'rxjs';
 import {
   competiton,
   event,
   ResponseObject,
   scholarship,
+  user,
 } from '../model/news.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class newsService {
+  subjects: any;
   isShowScholarship: boolean = false;
   isShowEvent: boolean = false;
   isShowCompetition: boolean = false;
@@ -96,17 +98,31 @@ export class newsService {
   }
   urlPath =
     'http://newscv-env.eba-3k8gbtyu.ap-southeast-1.elasticbeanstalk.com';
+  // login(data: any) {
+  //   let result = this.http
+  //     .post<ResponseObject>(`${this.urlPath + '/api/v1/login'}`, data)
+  //     .subscribe((a: ResponseObject) => console.log(a));
+  //   console.log(result);
+  //   return result;
+  // }
   login(data: any) {
-    // fetch(`${this.urlPath + '/api/v1/login'}`)
-    //   .then((response) => response.json())
-    //   .then((data) => console.log(data));
-    let result = this.http
-      .post<ResponseObject>(`${this.urlPath + '/api/v1/login'}`, data)
-      //.pipe(tap((response: ResponseObject) => console.log(response)));
-      .subscribe((a: ResponseObject) => console.log(a));
-    console.log(result);
-    return result;
+    return this.http.post<ResponseObject>(
+      `${this.urlPath + '/api/v1/login'}`,
+      data
+    );
   }
+  // login(newUser: user): Observable<user> {
+  //   return this.http.post<user>(`${this.urlPath + '/api/v1/login'}`, newUser);
+  // }
+  // login(newUser: user): Observable<user> {
+  //   return this.http.post<user>(this.urlPath + '/api/v1/login', newUser).pipe(
+  //     tap((user: user) => console.log(`inserted user=${JSON.stringify(user)}`)),
+  //     catchError((error) => of(new user()))
+  //   );
+  // }
+  // post(link:string, body:any){
+  //   return this.http.post(link,body).toPromise();
+  // }
   getListScholarship() {
     return of(this.listScholarship);
   }
