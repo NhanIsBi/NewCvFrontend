@@ -5,15 +5,15 @@ import { NzMessageService } from 'ng-zorro-antd/message';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { mergeMap, tap } from 'rxjs';
 import { ComFrame } from '../../model/competence-frames.model';
-import { CompetenceFramesEntryComponent } from '../competence-frames-entry/competence-frames-entry.component';
-import { CompetenceFramesService } from '../services/competence-frames.service';
+import { NewsEntryComponent } from '../news-entry/news-entry.component';
+import { NewsService } from '../services/news.service';
 
 @Component({
-  selector: 'app-competence-frame-view',
-  templateUrl: './competence-frame-view.component.html',
-  styleUrls: ['./competence-frame-view.component.less'],
+  selector: 'app-news-view',
+  templateUrl: './news-view.component.html',
+  styleUrls: ['./news-view.component.less'],
 })
-export class CompetenceFrameViewComponent implements OnInit {
+export class NewsViewComponent implements OnInit {
   public comFrame: ComFrame | undefined = new ComFrame();
   public id = '';
   company = 'FPT';
@@ -32,9 +32,9 @@ export class CompetenceFrameViewComponent implements OnInit {
   constructor(
     private message: NzMessageService,
     private route: ActivatedRoute,
-    private service: CompetenceFramesService,
+    private service: NewsService,
     private router: Router,
-    private competenceFrameCom: CompetenceFramesEntryComponent,
+    private news: NewsEntryComponent,
     private modal: NzModalService
   ) {}
 
@@ -44,14 +44,14 @@ export class CompetenceFrameViewComponent implements OnInit {
 
   public create() {
     this.service.conditionDup = false;
-    this.router.navigate(['./competence-frames/create']);
+    this.router.navigate(['./news/create']);
   }
   public update() {
-    this.router.navigate(['./competence-frames/' + this.id + '/edit']);
+    this.router.navigate(['./news/' + this.id + '/edit']);
   }
   public cancel() {
-    this.router.navigate(['./competence-frames/']);
-    this.competenceFrameCom.cancelDetailShow();
+    this.router.navigate(['./news/']);
+    this.news.cancelDetailShow();
   }
   public delete() {
     this.modal.warning({
@@ -72,14 +72,14 @@ export class CompetenceFrameViewComponent implements OnInit {
     if (this.comFrame) {
       this.message.success('Xoá thành công khung năng lực');
       this.service.delete(this.comFrame);
-      this.competenceFrameCom.getPageList();
+      this.news.getPageList();
       this.cancel();
     }
   }
   public duplicateClick() {
     this.message.success('Sao chép thành công khung năng lực');
     this.service.conditionDup = true;
-    this.router.navigate(['./competence-frames/create'], {
+    this.router.navigate(['./news/create'], {
       state: {
         id: this.comFrame?.id,
       },

@@ -37,6 +37,11 @@ import { ResignComponent } from './resign/resign.component';
               ),
           },
           {
+            path: 'news',
+            loadChildren: () =>
+              import('./news/news.module').then((m) => m.NewsModule),
+          },
+          {
             //onSelectionChangeNews();
             path: ':id',
             component: NewsScholarshipComponent,
