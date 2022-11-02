@@ -1,4 +1,5 @@
 @import "../shared/styles/ehiring.less";
+@import "/src/app/shared/styles/ehiring.less";
 
 .page {
   margin: 0;
@@ -6,12 +7,15 @@
   flex-direction: column;
   // height: auto;
   &-header {
+    display: flex;
+    justify-content: space-between;
     background-color: @green;
     position: sticky;
     top: 0;
     left: 0;
     right: 0;
-    .bar {
+    .barright {
+      gap: 5px;
       display: flex;
       flex-direction: row;
       padding: 10px;
@@ -21,12 +25,27 @@
         background: transparent;
         border: 2px solid transparent;
         width: auto;
+        font-size: large;
       }
-      &-line {
-        width: 1px;
-        // height: 80%;
-        // margin: auto 0;
-        background: @mid;
+      &-setting {
+        align-self: center;
+      }
+    }
+    .bar {
+      gap: 5px;
+      display: flex;
+      flex-direction: row;
+      padding: 10px;
+      &-item {
+        color: @white;
+        .text-style-bold(7);
+        background: transparent;
+        border: 2px solid transparent;
+        width: auto;
+        font-size: large;
+      }
+      &-setting {
+        align-self: center;
       }
     }
   }

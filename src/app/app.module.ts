@@ -13,12 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { HomepageModule } from './homepage/homepage.module';
 @NgModule({
-  declarations: [
-    AppComponent,
-    ResignComponent,
-    LoginComponent,
-    HomepageComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,

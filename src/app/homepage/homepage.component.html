@@ -10,9 +10,13 @@
   </div>
   <div class="page-header">
     <div class="bar">
-      <button class="bar-item" (click)="page()">Trang chủ</button>
-      <div class="bar-line"></div>
-      <div class="setting">
+      <div (click)="page()">
+        <span nz-icon nzType="svg:home" eIconSize="1.25rem"></span>
+      </div>
+      <div>
+        <button class="bar-item" (click)="page()">Trang chủ</button>
+      </div>
+      <div class="bar-setting">
         <ng-template #title>
           <span class="bar-item"> {{ news }}</span></ng-template
         >
@@ -22,14 +26,28 @@
           (selectionChange)="onSelectionChangeNews($event)"
         ></ehiring-dropdown>
       </div>
-      <div class="bar-line"></div>
+
       <button class="bar-item" (click)="recruit()">Tuyển dụng</button>
-      <div class="bar-line"></div>
-      <button class="bar-item" (click)="login()">Đăng nhập</button>
-      <div class="bar-line"></div>
-      <button class="bar-item" (click)="resign()">Đăng ký</button>
-      <div class="bar-line"></div>
-      <button class="bar-item" (click)="info()">Info</button>
+
+      <button class="bar-item" (click)="company()">Company</button>
+    </div>
+    <div class="barright">
+      <button class="barright-item" (click)="login()" *ngIf="!isShow">
+        Đăng nhập
+      </button>
+
+      <button class="barright-item" (click)="resign()" *ngIf="!isShow">
+        Đăng ký
+      </button>
+      <div (click)="info()" *ngIf="isShow">
+        <span nz-icon nzType="svg:user-white"></span>
+      </div>
+      <button class="barright-item" (click)="info()" *ngIf="isShow">
+        Info
+      </button>
+      <button class="barright-item" (click)="logout()" *ngIf="isShow">
+        Đăng xuất
+      </button>
     </div>
   </div>
   <router-outlet></router-outlet>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NzMessageService } from 'ng-zorro-antd/message';
+import { HomepageComponent } from '../homepage.component';
 import { user } from '../model/news.model';
 import { newsService } from '../services/news.service';
 
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private service: newsService,
     private message: NzMessageService,
-    private router: Router
+    private router: Router,
+    private homepagecom: HomepageComponent
   ) {}
 
   ngOnInit(): void {}
@@ -33,6 +35,7 @@ export class LoginComponent implements OnInit {
       } else {
         this.message.success('Đăng nhập thành công');
         this.router.navigate(['./homepage/page']);
+        this.homepagecom.isShow = true;
       }
     });
 

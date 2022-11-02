@@ -12,8 +12,18 @@ import { CompetenceFrameModule } from './competence-frames/competence-frames.mod
 import { NzRateModule } from 'ng-zorro-antd/rate';
 import { InfomationComponent } from './infomation/infomation.component';
 import { UiCommonModule } from '../shared/lib/ui-common.module';
+import { LoginComponent } from './login/login.component';
+import { ResignComponent } from './resign/resign.component';
+import { HomepageComponent } from './homepage.component';
 @NgModule({
-  declarations: [PageComponent, NewsScholarshipComponent, InfomationComponent],
+  declarations: [
+    PageComponent,
+    NewsScholarshipComponent,
+    InfomationComponent,
+    LoginComponent,
+    ResignComponent,
+    HomepageComponent,
+  ],
   imports: [
     CommonModule,
     HomepageRoutingModule,
