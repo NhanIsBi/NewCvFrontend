@@ -5,6 +5,7 @@ import { NzMessageService } from 'ng-zorro-antd/message';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { mergeMap, tap } from 'rxjs';
 import { ComFrame } from '../../model/competence-frames.model';
+import { Recruit } from '../../model/news.model';
 import { CompetenceFramesEntryComponent } from '../competence-frames-entry/competence-frames-entry.component';
 import { CompetenceFramesService } from '../services/competence-frames.service';
 
@@ -14,7 +15,7 @@ import { CompetenceFramesService } from '../services/competence-frames.service';
   styleUrls: ['./competence-frame-view.component.less'],
 })
 export class CompetenceFrameViewComponent implements OnInit {
-  public comFrame: ComFrame | undefined = new ComFrame();
+  public comFrame: Recruit | undefined = new Recruit();
   public id = '';
   company = 'FPT';
   exp = '20 năm';
@@ -24,7 +25,7 @@ export class CompetenceFrameViewComponent implements OnInit {
         this.cancel();
       }
       this.id = p['comFrameId'];
-      return this.service.getComFrameInfo(p['comFrameId']);
+      return this.service.getRecruitInfo(p['comFrameId']);
     }),
     tap((it) => (this.comFrame = it))
   );
@@ -39,7 +40,7 @@ export class CompetenceFrameViewComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.comFrame = this.service.comframe;
+    this.comFrame = this.service.recruit;
   }
 
   public create() {
@@ -55,7 +56,7 @@ export class CompetenceFrameViewComponent implements OnInit {
   }
   public delete() {
     this.modal.warning({
-      nzTitle: `Bạn có muốn xóa năng lực ${this.comFrame?.name} không?`,
+      nzTitle: `Bạn có muốn xóa năng lực ${this.comFrame?.title} không?`,
       nzOkDanger: true,
       nzClassName: 'customPopUp warning',
       nzOnOk: () => {

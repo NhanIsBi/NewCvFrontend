@@ -14,6 +14,8 @@ import {
 })
 export class newsService {
   subjects: any;
+  userLogin: user = new user();
+  token = '';
   isShowScholarship: boolean = false;
   isShowEvent: boolean = false;
   isShowCompetition: boolean = false;
@@ -109,6 +111,25 @@ export class newsService {
     return this.http.post<ResponseObject>(
       `${this.urlPath + '/api/v1/login'}`,
       data
+    );
+  }
+  // getInfo(email: string) {
+  //   return this.http.post<ResponseObject>(
+  //     `${this.urlPath + '/api/v1/user-by-email/' + email}`,
+  //     ''
+  //   );
+  // }
+  getLoggedInUser(email: string, auth_token: string): Observable<any> {
+    console.log('aaa');
+    const headers = new Headers({
+      'Content-Type': 'application/json',
+      Authorization: `${auth_token}`,
+    });
+    return this.http.post<ResponseObject>(
+      `${
+        (this.urlPath + '/api/v1/user-by-email/' + email, { headers: headers })
+      }`,
+      ''
     );
   }
   // login(newUser: user): Observable<user> {

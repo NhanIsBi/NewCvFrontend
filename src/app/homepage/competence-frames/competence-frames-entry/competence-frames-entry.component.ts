@@ -12,7 +12,8 @@ import { CompetenceFramesService } from '../services/competence-frames.service';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { BehaviorSubject, combineLatest, map, Subscription, timer } from 'rxjs';
-import { ComFrame } from '../../model/competence-frames.model';
+// import { ComFrame } from '../../model/competence-frames.model';
+import { Recruit } from '../../model/news.model';
 
 @Component({
   selector: 'app-competence-frames-entry',
@@ -23,7 +24,7 @@ export class CompetenceFramesEntryComponent implements OnInit, OnDestroy {
   @ViewChild('competenceFrameList', { static: true })
   competenceFrameList!: ElementRef<HTMLElement>;
 
-  public list: ComFrame[] = [];
+  public list: Recruit[] = [];
   isDetailShown = false;
   selectedCompetenceFrame = '';
 
@@ -63,6 +64,7 @@ export class CompetenceFramesEntryComponent implements OnInit, OnDestroy {
     private service: CompetenceFramesService,
     private modal: NzModalService
   ) {
+    // console.log('list', this.listCom$);
     this.getPageList(this.currentPage);
   }
   onPageIndexChange(event: number) {
@@ -74,19 +76,20 @@ export class CompetenceFramesEntryComponent implements OnInit, OnDestroy {
   onListOfSearchesChange(event: string[]) {
     this.listOfSearches$.next(event);
   }
-  isSearchCompetence(competence: ComFrame, searches: string[]): boolean {
+  isSearchCompetence(competence: Recruit, searches: string[]): boolean {
     if (searches.length === 0) return true;
     return searches.every(
       (search) =>
-        competence.name
+        competence.title
           .toLocaleLowerCase()
           .includes(search.toLocaleLowerCase()) ||
         competence.description
           ?.toLocaleLowerCase()
-          .includes(search.toLocaleLowerCase()) ||
-        competence.competences.some((com) =>
-          com.toLocaleLowerCase().includes(search.toLocaleLowerCase())
-        )
+          .includes(search.toLocaleLowerCase())
+      //   ||
+      // competence.competences.some((com) =>
+      //   com.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+      // )
     );
   }
   ngOnDestroy(): void {
@@ -97,7 +100,7 @@ export class CompetenceFramesEntryComponent implements OnInit, OnDestroy {
     this.getSearchKeyword();
   }
 
-  selectCompetenceFrame(value: string, obj: ComFrame, cardRef: HTMLElement) {
+  selectCompetenceFrame(value: string, obj: Recruit, cardRef: HTMLElement) {
     this.subscriptions.add(
       timer(50).subscribe(() => {
         cardRef.scrollIntoView({
@@ -106,7 +109,7 @@ export class CompetenceFramesEntryComponent implements OnInit, OnDestroy {
       })
     );
 
-    this.service.comframe = obj;
+    this.service.recruit = obj;
     this.selectedCompetenceFrame = value;
 
     this.router.navigate(['./homepage/competence-frames/' + value]);
@@ -204,65 +207,67 @@ export class CompetenceFramesEntryComponent implements OnInit, OnDestroy {
     this.currentPage = page == undefined ? this.currentPage : page;
 
     if (this.filterList) {
-      let tempList: ComFrame[] = [];
-      this.service.listCom.forEach((comFrame: ComFrame) => {
+      let tempList: Recruit[] = [];
+      this.service.listRecruit.forEach((Recruit: Recruit) => {
         if (
           this.filterList.every((filterKeyword: string) => {
             const lowerFilterKeyword = filterKeyword.toLowerCase();
-            if (comFrame.description === undefined) {
+            if (Recruit.description === undefined) {
               return (
                 // if(this.sevices.checkVietnames())
                 this.service
-                  .toLowerCaseNonAccentVietnamese(comFrame.name)
-                  .includes(lowerFilterKeyword) ||
-                comFrame.competences.some((competence: string) =>
-                  this.service
-                    .toLowerCaseNonAccentVietnamese(competence)
-                    .includes(lowerFilterKeyword)
-                )
+                  .toLowerCaseNonAccentVietnamese(Recruit.title)
+                  .includes(lowerFilterKeyword)
+                //   ||
+                // Recruit.competences.some((competence: string) =>
+                //   this.service
+                //     .toLowerCaseNonAccentVietnamese(competence)
+                //     .includes(lowerFilterKeyword)
+                // )
               );
             } else {
               return (
                 // if(this.sevices.checkVietnames())
                 this.service
                   .toLowerCaseNonAccentVietnamese(
-                    comFrame.name,
+                    Recruit.title,
                     lowerFilterKeyword
                   )
                   .includes(lowerFilterKeyword) ||
                 this.service
                   .toLowerCaseNonAccentVietnamese(
-                    comFrame.description,
+                    Recruit.description,
                     lowerFilterKeyword
                   )
-                  .includes(lowerFilterKeyword) ||
-                comFrame.competences.some((competence: string) =>
-                  this.service
-                    .toLowerCaseNonAccentVietnamese(
-                      competence,
-                      lowerFilterKeyword
-                    )
-                    .includes(lowerFilterKeyword)
-                )
+                  .includes(lowerFilterKeyword)
+                //   ||
+                // Recruit.competences.some((competence: string) =>
+                //   this.service
+                //     .toLowerCaseNonAccentVietnamese(
+                //       competence,
+                //       lowerFilterKeyword
+                //     )
+                //     .includes(lowerFilterKeyword)
+                // )
               );
             }
           })
         ) {
-          tempList.push(comFrame);
+          tempList.push(Recruit);
         }
       });
       this.listLength = tempList.length;
 
       if (this.order == 1) {
         tempList = tempList.sort((n1, n2) => {
-          if (n1.name > n2.name) return 1;
-          if (n1.name < n2.name) return -1;
+          if (n1.title > n2.title) return 1;
+          if (n1.title < n2.title) return -1;
           return 0;
         });
       } else if (this.order == -1) {
         tempList = tempList.sort((n1, n2) => {
-          if (n1.name < n2.name) return 1;
-          if (n1.name > n2.name) return -1;
+          if (n1.title < n2.title) return 1;
+          if (n1.title > n2.title) return -1;
           return 0;
         });
       }
@@ -273,7 +278,7 @@ export class CompetenceFramesEntryComponent implements OnInit, OnDestroy {
       );
     } else {
       this.listLength = this.service.listCom.length;
-      this.list = this.service.listCom.slice(
+      this.list = this.service.listRecruit.slice(
         this.currentPage * this.paginationAmount,
         (this.currentPage + 1) * this.paginationAmount
       );

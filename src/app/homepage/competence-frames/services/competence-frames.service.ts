@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { listOfVietnamese } from 'src/app/shared/config';
 import { ComFrame } from '../../model/competence-frames.model';
+import { Recruit, ResponseObject } from '../../model/news.model';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,10 @@ export class CompetenceFramesService {
   public conditionDup = false;
   public comframe = new ComFrame();
   public listCom: ComFrame[] = [];
-  urlPath = 'http://localhost:3000/' + 'criteria';
+  public recruit = new Recruit();
+  public listRecruit: Recruit[] = [];
+  urlPath =
+    'http://newscv-env.eba-3k8gbtyu.ap-southeast-1.elasticbeanstalk.com';
   private refreshBehavior = new BehaviorSubject<number>(0);
   public getRefresh() {
     return this.refreshBehavior;
@@ -22,12 +26,32 @@ export class CompetenceFramesService {
     this.refreshBehavior.next(this.refreshBehavior.value + 1);
   }
   public getListOfCompetences() {
-    return of(this.listCom);
+    return of(this.listRecruit);
   }
   constructor(private http: HttpClient) {
+    // this.initListPoola();
+    // console.log('initListPoola', this.initListPoola());
     this.initListPool();
+    // console.log('initListPool', this.initListPool());
   }
   initListPool() {
+    this.getListRecruit().subscribe((res) => {
+      this.listRecruit = res.data;
+
+      // this.listRecruit.push(
+      //   Object.assign(new Recruit(), res.data, console.log('data', res.data))
+      // );
+      console.log('listRecruit', this.listRecruit);
+      // if (this.subjects == null) {
+      //   this.message.success('Đăng nhập thất bại');
+      // } else {
+      //   this.message.success('Đăng nhập thành công');
+      //   this.router.navigate(['./homepage/page']);
+      //   this.homepagecom.isShow = true;
+      // }
+    });
+  }
+  initListPoola() {
     this.listCom.push(
       Object.assign(new ComFrame(), {
         id: 'r7nh4ssd8js83nrhffhs2vb0',
@@ -512,6 +536,11 @@ export class CompetenceFramesService {
     );
   }
 
+  getListRecruit() {
+    return this.http.get<ResponseObject>(
+      `${this.urlPath + '/api/v1/job-news/get-all'}`
+    );
+  }
   create(newCom: ComFrame) {
     this.listCom.unshift(newCom);
     this.refresh();
@@ -526,9 +555,9 @@ export class CompetenceFramesService {
       }
     });
   }
-  delete(newCom: ComFrame) {
+  delete(newCom: Recruit) {
     for (let i = 0; i < this.listCom.length; i++) {
-      if (this.listCom[i] === newCom) {
+      if (this.listRecruit[i] === newCom) {
         this.listCom.splice(i, 1);
       }
     }
@@ -550,6 +579,12 @@ export class CompetenceFramesService {
     }
     return of(this.listCom.find((item) => item.id === id));
   }
+  public getRecruitInfo(id?: string): Observable<Recruit | undefined> {
+    if (!id) {
+      return of(new Recruit());
+    }
+    return of(this.listRecruit.find((item) => item.code === id));
+  }
   public getRandomId(): string {
     let text = '';
     const possible = 'abcdefghijklmnopqrstuvwxyz0123456789';
@@ -559,11 +594,11 @@ export class CompetenceFramesService {
   }
 
   public isComFrameExist(id: string) {
-    return this.listCom.find((item) => item.id === id) ? true : false;
+    return this.listRecruit.find((item) => item.code === id) ? true : false;
   }
 
   public getComFrame(id: string) {
-    return this.listCom.find((item) => item.id === id);
+    return this.listRecruit.find((item) => item.code === id);
   }
   checkVietnames(str: string) {
     str = str.toLowerCase();

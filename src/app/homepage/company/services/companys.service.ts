@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { listOfVietnamese } from 'src/app/shared/config';
 import { ComFrame } from '../../model/competence-frames.model';
+import { Recruit, ResponseObject } from '../../model/news.model';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,9 @@ export class CompetenceFramesService {
   public conditionDup = false;
   public comframe = new ComFrame();
   public listCom: ComFrame[] = [];
-  urlPath = 'http://localhost:3000/' + 'criteria';
+  public listRecruit: Recruit[] = [];
+  urlPath =
+    'http://newscv-env.eba-3k8gbtyu.ap-southeast-1.elasticbeanstalk.com';
   private refreshBehavior = new BehaviorSubject<number>(0);
   public getRefresh() {
     return this.refreshBehavior;
@@ -26,6 +29,22 @@ export class CompetenceFramesService {
   }
   constructor(private http: HttpClient) {
     this.initListPool();
+    console.log('initListPool', this.initListPool());
+    // this.initListRecruit();
+  }
+  initListRecruit() {
+    this.getListRecruit().subscribe((res) => {
+      this.listRecruit.push(Object.assign(new Recruit(), res.data));
+      console.log(this.listRecruit);
+      // if (this.subjects == null) {
+      //   this.message.success('Đăng nhập thất bại');
+      // } else {
+      //   this.message.success('Đăng nhập thành công');
+      //   this.router.navigate(['./homepage/page']);
+      //   this.homepagecom.isShow = true;
+      // }
+    });
+    // this.listRecruit=this.getListRecruit();
   }
   initListPool() {
     this.listCom.push(
@@ -512,6 +531,11 @@ export class CompetenceFramesService {
     );
   }
 
+  getListRecruit() {
+    return this.http.get<ResponseObject>(
+      `${this.urlPath + '/api/v1/job-news/get-all'}`
+    );
+  }
   create(newCom: ComFrame) {
     this.listCom.unshift(newCom);
     this.refresh();
