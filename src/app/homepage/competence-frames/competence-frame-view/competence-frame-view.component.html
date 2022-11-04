@@ -53,7 +53,15 @@
         <div class="image"></div>
         <app-section title="Mô tả">
           <div container>
-            <textarea
+            <div section-container class="competence-tags">
+              <!-- <span
+                class="tag"
+                *ngFor="let item of (comFrameInfo$ | async)?.['competences']"
+                >{{ item }}</span
+              > -->
+              <div>{{ a }}</div>
+            </div>
+            <!-- <textarea
               nz-input
               placeholder="Nhập mô tả"
               [value]="(comFrameInfo$ | async)?.['description']"
@@ -65,7 +73,7 @@
                 padding: 1rem;
                 pointer-events: none;
               "
-            ></textarea>
+            ></textarea> -->
           </div>
         </app-section>
         <app-section title="Danh sách năng lực" [collapsible]="false">
@@ -75,8 +83,8 @@
               *ngFor="let item of (comFrameInfo$ | async)?.['competences']"
               >{{ item }}</span
             > -->
-            <div>{{ company }}</div>
-            <div>{{ exp }}</div>
+            <div>{{ comFrame?.experience }}</div>
+            <div>{{ comFrame?.salary }}</div>
           </div>
         </app-section>
       </div>

@@ -4,10 +4,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { mergeMap, tap } from 'rxjs';
-import { ComFrame } from '../../model/competence-frames.model';
 import { Recruit } from '../../model/news.model';
 import { CompetenceFramesEntryComponent } from '../competence-frames-entry/competence-frames-entry.component';
 import { CompetenceFramesService } from '../services/competence-frames.service';
+import { htmlToText } from 'html-to-text';
 
 @Component({
   selector: 'app-competence-frame-view',
@@ -17,8 +17,8 @@ import { CompetenceFramesService } from '../services/competence-frames.service';
 export class CompetenceFrameViewComponent implements OnInit {
   public comFrame: Recruit | undefined = new Recruit();
   public id = '';
-  company = 'FPT';
-  exp = '20 năm';
+  a = '';
+  b = '';
   public comFrameInfo$ = this.route.params.pipe(
     mergeMap((p) => {
       if (!this.service.isComFrameExist(p['comFrameId'])) {
@@ -41,6 +41,21 @@ export class CompetenceFrameViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.comFrame = this.service.recruit;
+    const result = htmlToText(this.comFrame.description, {
+      singleNewLineParagraphs: true,
+      ignoreImage: true,
+      formatters: {
+        anchor: (el, walk, builder, opts) => {
+          builder.openBlock();
+          walk(el.children, builder);
+          builder.closeBlock();
+        },
+      },
+    });
+    // const appDiv: HTMLElement = document.getElementById('app') as HTMLElement;
+    // appDiv.innerHTML = result;
+    this.a = result;
+    console.log(this.a);
   }
 
   public create() {
