@@ -100,13 +100,6 @@ export class newsService {
   }
   urlPath =
     'http://newscv-env.eba-3k8gbtyu.ap-southeast-1.elasticbeanstalk.com';
-  // login(data: any) {
-  //   let result = this.http
-  //     .post<ResponseObject>(`${this.urlPath + '/api/v1/login'}`, data)
-  //     .subscribe((a: ResponseObject) => console.log(a));
-  //   console.log(result);
-  //   return result;
-  // }
   login(data: any) {
     return this.http.post<ResponseObject>(
       `${this.urlPath + '/api/v1/login'}`,

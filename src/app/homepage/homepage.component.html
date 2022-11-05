@@ -43,7 +43,7 @@
         <span nz-icon nzType="svg:user-white"></span>
       </div>
       <button class="barright-item" (click)="info()" *ngIf="isShow">
-        Info
+        {{ user.name }}
       </button>
       <button class="barright-item" (click)="logout()" *ngIf="isShow">
         Đăng xuất

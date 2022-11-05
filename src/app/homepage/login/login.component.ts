@@ -30,7 +30,6 @@ export class LoginComponent implements OnInit {
     this.service.login(this.user).subscribe((res) => {
       this.subjects = res.data;
       this.service.token = res.data;
-      console.log(this.service.token);
       if (this.subjects == null) {
         this.message.success('Đăng nhập thất bại');
       } else {
@@ -39,7 +38,6 @@ export class LoginComponent implements OnInit {
           .getLoggedInUser(this.user.email, this.service.token)
           .subscribe((res) => {
             this.service.userLogin = res.data;
-            console.log('user1111', res.data);
           });
         this.router.navigate(['./homepage/page']);
         this.homepagecom.isShow = true;
