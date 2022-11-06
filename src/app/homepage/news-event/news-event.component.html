@@ -1,8 +1,8 @@
-<!-- Show Scholarship -->
+<!-- Show Event -->
 <div class="page">
   <div class="page-body">
     <div class="left">
-      <div class="left-title2">Học bổng</div>
+      <div class="left-title2">Sự kiện</div>
       <div class="left-title3">
         Học bổng toàn phần, bán phần của chính phủ, các tổ chức, công ty và
         trường đại học trong nước và quốc tế hấp dẫn
@@ -77,7 +77,6 @@
       <div *ngFor="let data of listScholarship$ | async" class="bottom-list">
         <div>{{ data.title }}</div>
         <div>{{ data.shortContent }}</div>
-        <div>{{ data.level }}</div>
         <div>{{ data.location }}</div>
         <div>{{ data.type }}</div>
       </div>

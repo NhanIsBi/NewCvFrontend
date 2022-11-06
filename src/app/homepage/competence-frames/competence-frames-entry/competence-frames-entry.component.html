@@ -71,10 +71,11 @@
             <div
               class="font-bold h-14 bg-secondary-5 rounded-t-lg p-4 flex items-center"
             >
-              <span>Vị trí tuyển dụng: {{ test.title }}</span>
+              <span>{{ test.title }}</span>
             </div>
 
-            <div class="body p-4">
+            <div class="body p-4 inline-flex">
+              <img class="image" [src]="test.thumbnail" />
               <div class="inline-flex flex-wrap">
                 <!-- <div
                   class="tag mr-2 mb-2"
@@ -82,6 +83,7 @@
                 >
                   {{ item }}
                 </div> -->
+
                 <div class="tag mr-2 mb-2">{{ test.major }}<br /></div>
                 <div class="tag mr-2 mb-2">{{ test.position }}<br /></div>
                 <div class="tag mr-2 mb-2">{{ test.language }}<br /></div>

@@ -1,8 +1,8 @@
-<!-- Show Scholarship -->
+<!-- Show Competition -->
 <div class="page">
   <div class="page-body">
     <div class="left">
-      <div class="left-title2">Học bổng</div>
+      <div class="left-title2">Cuộc thi</div>
       <div class="left-title3">
         Học bổng toàn phần, bán phần của chính phủ, các tổ chức, công ty và
         trường đại học trong nước và quốc tế hấp dẫn
@@ -21,52 +21,39 @@
             <div class="setting">
               <ng-template #title>
                 <span class="setting-title">
-                  {{ scholarship }}</span
+                  {{
+                    location !== "" && location !== undefined
+                      ? location
+                      : "Địa điểm"
+                  }}</span
                 ></ng-template
               >
               <ehiring-dropdown
                 [temRef]="title"
-                [data]="dataScholarship"
-                (selectionChange)="onSelectionChangeScholarship($event)"
+                [data]="dataLocation"
+                (selectionChange)="onSelectionChangeLocation($event)"
               ></ehiring-dropdown>
             </div>
 
             <div class="setting">
               <ng-template #title1>
-                <span class="setting-title"> {{ level }}</span></ng-template
+                <span class="setting-title">
+                  {{
+                    Category !== "" && Category !== undefined
+                      ? Category
+                      : "Thể loại"
+                  }}</span
+                ></ng-template
               >
               <ehiring-dropdown
                 [temRef]="title1"
-                [data]="dataLevel"
-                (selectionChange)="onSelectionChangeLevel($event)"
-              ></ehiring-dropdown>
-            </div>
-          </div>
-          <div class="filter-dropdown">
-            <div class="setting">
-              <ng-template #title2>
-                <span class="setting-title"> {{ majors }}</span></ng-template
-              >
-              <ehiring-dropdown
-                [temRef]="title2"
-                [data]="dataMajors"
-                (selectionChange)="onSelectionChangeMajors($event)"
-              ></ehiring-dropdown>
-            </div>
-
-            <div class="setting">
-              <ng-template #title3>
-                <span class="setting-title"> {{ location }}</span></ng-template
-              >
-              <ehiring-dropdown
-                [temRef]="title3"
-                [data]="dataLocation"
-                (selectionChange)="onSelectionChangeLocation($event)"
+                [data]="dataCategory"
+                (selectionChange)="onSelectionChangeCategory($event)"
               ></ehiring-dropdown>
             </div>
           </div>
         </div>
-        <button class="find">Tìm kiếm</button>
+        <button class="find" (click)="find()">Tìm kiếm</button>
       </div>
     </div>
     <div class="bottom">
@@ -77,9 +64,9 @@
       <div *ngFor="let data of listScholarship$ | async" class="bottom-list">
         <div>{{ data.title }}</div>
         <div>{{ data.shortContent }}</div>
-        <div>{{ data.level }}</div>
         <div>{{ data.location }}</div>
         <div>{{ data.type }}</div>
+        <div>{{ data.typeNews }}</div>
       </div>
     </div>
     <nz-pagination

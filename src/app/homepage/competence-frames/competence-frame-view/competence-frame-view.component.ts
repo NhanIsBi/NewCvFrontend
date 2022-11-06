@@ -15,10 +15,11 @@ import { htmlToText } from 'html-to-text';
   styleUrls: ['./competence-frame-view.component.less'],
 })
 export class CompetenceFrameViewComponent implements OnInit {
+  img =
+    'https://firebasestorage.googleapis.com/v0/b/newscv-3595e.appspot.com/o/cf76fb34-a0ec-45f2-9dcd-2e333754b0d1png?alt=media';
   public comFrame: Recruit | undefined = new Recruit();
   public id = '';
   a = '';
-  b = '';
   public comFrameInfo$ = this.route.params.pipe(
     mergeMap((p) => {
       if (!this.service.isComFrameExist(p['comFrameId'])) {

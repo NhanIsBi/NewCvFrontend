@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomepageComponent } from './homepage.component';
 import { InfomationComponent } from './infomation/infomation.component';
 import { LoginComponent } from './login/login.component';
+import { NewsCompetionComponent } from './news-competion/news-competion.component';
+import { NewsEventComponent } from './news-event/news-event.component';
 import { NewsScholarshipComponent } from './news-scholarship/news-scholarship.component';
 import { PageComponent } from './page/page.component';
 import { ResignComponent } from './resign/resign.component';
@@ -30,6 +32,18 @@ import { ResignComponent } from './resign/resign.component';
             component: InfomationComponent,
           },
           {
+            path: 'news-competion',
+            component: NewsCompetionComponent,
+          },
+          {
+            path: 'news-scholarship',
+            component: NewsScholarshipComponent,
+          },
+          {
+            path: 'news-event',
+            component: NewsEventComponent,
+          },
+          {
             path: 'competence-frames',
             loadChildren: () =>
               import('./competence-frames/competence-frames.module').then(
@@ -45,11 +59,6 @@ import { ResignComponent } from './resign/resign.component';
             path: 'companys',
             loadChildren: () =>
               import('./company/companys.module').then((m) => m.CompanysModule),
-          },
-          {
-            //onSelectionChangeNews();
-            path: ':id',
-            component: NewsScholarshipComponent,
           },
         ],
       },

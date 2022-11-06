@@ -5,11 +5,11 @@ import { scholarship } from '../model/news.model';
 import { newsService } from '../services/news.service';
 
 @Component({
-  selector: 'app-news-scholarship',
-  templateUrl: './news-scholarship.component.html',
-  styleUrls: ['./news-scholarship.component.less'],
+  selector: 'app-news-event',
+  templateUrl: './news-event.component.html',
+  styleUrls: ['./news-event.component.less'],
 })
-export class NewsScholarshipComponent implements OnInit {
+export class NewsEventComponent implements OnInit {
   filterList: string[] = [];
   scholarship = 'Loại học bổng';
   level = 'Trình độ';
@@ -20,7 +20,7 @@ export class NewsScholarshipComponent implements OnInit {
   dataMajors: string[] = [];
   dataLocation: string[] = [];
   listScholarship: scholarship[] = [];
-  rawListScholarship$ = this.sevices.getListOfScholarship();
+  rawListScholarship$ = this.sevices.getListOfEvent();
   routing = this.route.params.pipe(map((p) => p['id']));
   pageIndex$ = new BehaviorSubject<number>(1);
   pageSize$ = new BehaviorSubject<number>(5);

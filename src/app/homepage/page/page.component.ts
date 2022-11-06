@@ -10,23 +10,23 @@ import { newsService } from '../services/news.service';
   styleUrls: ['./page.component.less'],
 })
 export class PageComponent implements OnInit {
-  listData: scholarship[] = [];
-  rawListScholarship$ = this.sevices.getListScholarship();
-  pageIndex$ = new BehaviorSubject<number>(1);
-  pageSize$ = new BehaviorSubject<number>(5);
-  listData$ = combineLatest({
-    list: this.rawListScholarship$,
-    index: this.pageIndex$,
-    size: this.pageSize$,
-  }).pipe(
-    map(({ list, index, size }) => {
-      return list.slice((index - 1) * size, index * size);
-    })
-  );
+  // listData: scholarship[] = [];
+  // rawListScholarship$ = this.sevices.getListOfScholarship();
+  // pageIndex$ = new BehaviorSubject<number>(1);
+  // pageSize$ = new BehaviorSubject<number>(5);
+  // listData$ = combineLatest({
+  //   list: this.rawListScholarship$,
+  //   index: this.pageIndex$,
+  //   size: this.pageSize$,
+  // }).pipe(
+  //   map(({ list, index, size }) => {
+  //     return list.slice((index - 1) * size, index * size);
+  //   })
+  // );
   constructor(private router: Router, private sevices: newsService) {}
 
   ngOnInit(): void {}
   onPageIndexChange(index: number) {
-    this.pageIndex$.next(index);
+    // this.pageIndex$.next(index);
   }
 }

@@ -19,6 +19,11 @@ export class CompetenceFramesService {
   urlPath =
     'http://newscv-env.eba-3k8gbtyu.ap-southeast-1.elasticbeanstalk.com';
   private refreshBehavior = new BehaviorSubject<number>(0);
+
+  constructor(private http: HttpClient) {
+    this.initListPool();
+  }
+
   public getRefresh() {
     return this.refreshBehavior;
   }
@@ -26,11 +31,10 @@ export class CompetenceFramesService {
     this.refreshBehavior.next(this.refreshBehavior.value + 1);
   }
   public getListOfCompetences() {
+    console.log('complet');
     return of(this.listRecruit);
   }
-  constructor(private http: HttpClient) {
-    this.initListPool();
-  }
+
   initListPool() {
     this.getListRecruit().subscribe((res) => {
       this.listRecruit = res.data;

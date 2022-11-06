@@ -15,6 +15,8 @@ import { UiCommonModule } from '../shared/lib/ui-common.module';
 import { LoginComponent } from './login/login.component';
 import { ResignComponent } from './resign/resign.component';
 import { HomepageComponent } from './homepage.component';
+import { NewsCompetionComponent } from './news-competion/news-competion.component';
+import { NewsEventComponent } from './news-event/news-event.component';
 @NgModule({
   declarations: [
     PageComponent,
@@ -23,6 +25,8 @@ import { HomepageComponent } from './homepage.component';
     LoginComponent,
     ResignComponent,
     HomepageComponent,
+    NewsCompetionComponent,
+    NewsEventComponent,
   ],
   imports: [
     CommonModule,

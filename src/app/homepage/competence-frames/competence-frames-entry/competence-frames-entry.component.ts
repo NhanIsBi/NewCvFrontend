@@ -64,7 +64,6 @@ export class CompetenceFramesEntryComponent implements OnInit, OnDestroy {
     private service: CompetenceFramesService,
     private modal: NzModalService
   ) {
-    // console.log('list', this.listCom$);
     this.getPageList(this.currentPage);
   }
   onPageIndexChange(event: number) {

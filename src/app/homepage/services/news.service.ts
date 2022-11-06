@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, of, tap } from 'rxjs';
 import {
-  competiton,
+  competion,
   event,
   ResponseObject,
   scholarship,
   user,
 } from '../model/news.model';
+import { NewsScholarshipComponent } from '../news-scholarship/news-scholarship.component';
 
 @Injectable({
   providedIn: 'root',
@@ -92,7 +93,7 @@ export class newsService {
   public scholarship = new scholarship();
   public listScholarship: scholarship[] = [];
   public listEvent: event[] = [];
-  public listCompetiton: competiton[] = [];
+  public listCompetiton: competion[] = [];
   constructor(private http: HttpClient) {
     this.initlistScholarship();
     this.initlistEvent();
@@ -137,8 +138,14 @@ export class newsService {
   // post(link:string, body:any){
   //   return this.http.post(link,body).toPromise();
   // }
-  getListScholarship() {
+  getListOfScholarship() {
     return of(this.listScholarship);
+  }
+  getListOfEvent() {
+    return of(this.listEvent);
+  }
+  getListOfCompetion() {
+    return of(this.listCompetiton);
   }
   getAllTalents() {
     return this.http.get(this.urlPath);
@@ -157,297 +164,36 @@ export class newsService {
   deleteTalent(id: string) {
     return this.http.delete(`${this.urlPath}/${id}`);
   }
-
   initlistScholarship() {
-    this.listScholarship.push({
-      id: 'r7nh4ssd8js83nrhffhs2vb0',
-      scholarship: 'Pending Pool',
-      level: 'Cử nhân',
-      majors: 'Kinh tế',
-      location: 'Đức',
-      descriptions:
-        'Đây là Talent Pool mặc định được hệ thống tự động tạo ra để lưu thông tin ứng viên trong trường hợp không thể tìm thấy bài đăng tuyển tương ứng.',
+    this.getListScholarship().subscribe((res) => {
+      this.listScholarship = res.data;
     });
-    this.listScholarship.push({
-      id: 'j8dh45gd8js83nrh8dhs8h3e',
-      scholarship: 'DevOps',
-      level: 'Thạc sĩ',
-      majors: 'Công nghệ thông tin',
-      location: 'Mỹ',
-      descriptions: 'Đây là nhóm DevOps',
-    });
-    this.listScholarship.push({
-      id: '6295bfd471ea517f1c2e4593',
-      scholarship: 'Hành chính - HR',
-      level: 'Kiến trúc sư',
-      majors: 'Kiến trúc',
-      location: 'Nga',
-      descriptions: 'Đây là nhóm Hành chính - nhân sự',
-    });
-    this.listScholarship.push({
-      id: '629aa6e9fd31520018e406bb',
-      scholarship: 'BrSE',
-      level: '',
-      majors: '',
-      location: '',
-      descriptions: 'Đây là nhóm BrSE',
-    });
-    this.listScholarship.push({
-      id: '629ebee1fd31520018e58d30',
-      scholarship: 'Kinh doanh',
-      level: '',
-      majors: '',
-      location: '',
-      descriptions: 'Đây là nhóm Kinh doanh',
-    });
-    this.listScholarship.push({
-      id: '629f3db1fd31520018e5e920',
-      scholarship: 'Fullstack',
-      level: '',
-      majors: '',
-      location: '',
-      descriptions: 'Đây là nhóm Fullstack',
-    });
-    this.listScholarship.push({
-      id: '62a6b117e189bb43b24ca105',
-      scholarship: 'Sale',
-      level: '',
-      majors: '',
-      location: '',
-      descriptions: 'Đây là nhóm Sale',
-    });
-    this.listScholarship.push({
-      id: '6295bfd471ea517f1c2e4599',
-      scholarship: 'Marketing',
-      level: '',
-      majors: '',
-      location: '',
-      descriptions: '',
-    });
-    this.listScholarship.push({
-      id: 'j8dh45gd8js83nrh8dhs8h39',
-      scholarship: 'Kế toán',
-      level: '',
-      majors: '',
-      location: '',
-      descriptions: '',
-    });
-    this.listScholarship.push({
-      id: 'r7nh4ssd8js83nrhffhs2vb9',
-      scholarship: 'Trưởng phòng',
-      level: '',
-      majors: '',
-      location: '',
-      descriptions: '',
-    });
-    this.listScholarship.push({
-      id: '629aa6e9fd31520018e406b9',
-      scholarship: 'UI/UX',
-      level: '',
-      majors: '',
-      location: '',
-      descriptions: 'Đây là nhóm UI/UX',
-    });
-    this.listScholarship.push({
-      id: '629ebee1fd31520018e58d39',
-      scholarship: 'QC/QA',
-      level: '',
-      majors: '',
-      location: '',
-      descriptions: 'Đây là nhóm QC/QA',
-    });
-    this.listScholarship.push({
-      id: '629f3db1fd31520018e5e929',
-      scholarship: 'DBA',
-      level: '',
-      majors: '',
-      location: '',
-      descriptions: 'Đây là nhóm DBA',
-    });
-    this.listScholarship.push({
-      id: '62a6b117e189bb43b24ca109',
-      scholarship: 'TA',
-      level: '',
-      majors: '',
-      location: '',
-      descriptions: '',
-    });
+  }
+  getListScholarship() {
+    return this.http.get<ResponseObject>(
+      `${this.urlPath + '/api/v1/scholarship-news/get-all'}`
+    );
   }
   initlistEvent() {
-    this.listEvent.push({
-      id: 'r7nh4ssd8js83nrhffhs2vb0',
-      category: 'Event 1',
-      location: 'Đức',
-      descriptions:
-        'Đây là Talent Pool mặc định được hệ thống tự động tạo ra để lưu thông tin ứng viên trong trường hợp không thể tìm thấy bài đăng tuyển tương ứng.',
+    this.getListEvent().subscribe((res) => {
+      this.listEvent = res.data;
     });
-    this.listEvent.push({
-      id: 'j8dh45gd8js83nrh8dhs8h3e',
-      category: 'Event 2',
-      location: 'Mỹ',
-      descriptions: 'Đây là nhóm DevOps',
-    });
-    this.listEvent.push({
-      id: '6295bfd471ea517f1c2e4593',
-      category: 'Event 2.1',
-      location: 'Nga',
-      descriptions: 'Đây là nhóm Hành chính - nhân sự',
-    });
-    this.listEvent.push({
-      id: '629aa6e9fd31520018e406bb',
-      category: 'Event 3',
-      location: '',
-      descriptions: 'Đây là nhóm BrSE',
-    });
-    this.listEvent.push({
-      id: '629ebee1fd31520018e58d30',
-      category: 'Event 4',
-      location: '',
-      descriptions: 'Đây là nhóm Kinh doanh',
-    });
-    this.listEvent.push({
-      id: '629f3db1fd31520018e5e920',
-      category: 'Event 5',
-      location: '',
-      descriptions: 'Đây là nhóm Fullstack',
-    });
-    this.listEvent.push({
-      id: '62a6b117e189bb43b24ca105',
-      category: 'Event 6',
-      location: '',
-      descriptions: 'Đây là nhóm Sale',
-    });
-    this.listEvent.push({
-      id: '6295bfd471ea517f1c2e4599',
-      category: 'Event 7',
-      location: '',
-      descriptions: '',
-    });
-    this.listEvent.push({
-      id: 'j8dh45gd8js83nrh8dhs8h39',
-      category: 'Event 8',
-      location: '',
-      descriptions: '',
-    });
-    this.listEvent.push({
-      id: 'r7nh4ssd8js83nrhffhs2vb9',
-      category: 'Event 9',
-      location: '',
-      descriptions: '',
-    });
-    this.listEvent.push({
-      id: '629aa6e9fd31520018e406b9',
-      category: 'Event 10',
-      location: '',
-      descriptions: 'Đây là nhóm UI/UX',
-    });
-    this.listEvent.push({
-      id: '629ebee1fd31520018e58d39',
-      category: 'Event 11',
-      location: '',
-      descriptions: 'Đây là nhóm QC/QA',
-    });
-    this.listEvent.push({
-      id: '629f3db1fd31520018e5e929',
-      category: 'Event 12',
-      location: '',
-      descriptions: 'Đây là nhóm DBA',
-    });
-    this.listEvent.push({
-      id: '62a6b117e189bb43b24ca109',
-      category: 'Event 13',
-      location: '',
-      descriptions: '',
-    });
+  }
+  getListEvent() {
+    return this.http.get<ResponseObject>(
+      `${this.urlPath + '/api/v1/event-news/get-all'}`
+    );
   }
   initlistCompetiton() {
-    this.listCompetiton.push({
-      id: 'r7nh4ssd8js83nrhffhs2vb0',
-      category: 'Recruit 1',
-      location: 'Đức',
-      descriptions:
-        'Đây là Talent Pool mặc định được hệ thống tự động tạo ra để lưu thông tin ứng viên trong trường hợp không thể tìm thấy bài đăng tuyển tương ứng.',
-    });
-    this.listCompetiton.push({
-      id: 'j8dh45gd8js83nrh8dhs8h3e',
-      category: 'Recruit 2',
-      location: 'Mỹ',
-      descriptions: 'Đây là nhóm DevOps',
-    });
-    this.listCompetiton.push({
-      id: '6295bfd471ea517f1c2e4593',
-      category: 'Recruit 3',
-      location: 'Nga',
-      descriptions: 'Đây là nhóm Hành chính - nhân sự',
-    });
-    this.listCompetiton.push({
-      id: '629aa6e9fd31520018e406bb',
-      category: 'Recruit 4',
-      location: '',
-      descriptions: 'Đây là nhóm BrSE',
-    });
-    this.listCompetiton.push({
-      id: '629ebee1fd31520018e58d30',
-      category: 'Recruit 5',
-      location: '',
-      descriptions: 'Đây là nhóm Kinh doanh',
-    });
-    this.listCompetiton.push({
-      id: '629f3db1fd31520018e5e920',
-      category: 'Recruit 6',
-      location: '',
-      descriptions: 'Đây là nhóm Fullstack',
-    });
-    this.listCompetiton.push({
-      id: '62a6b117e189bb43b24ca105',
-      category: 'Recruit 7',
-      location: '',
-      descriptions: 'Đây là nhóm Sale',
-    });
-    this.listCompetiton.push({
-      id: '6295bfd471ea517f1c2e4599',
-      category: 'Recruit 8',
-      location: '',
-      descriptions: '',
-    });
-    this.listCompetiton.push({
-      id: 'j8dh45gd8js83nrh8dhs8h39',
-      category: 'Recruit 9',
-      location: '',
-      descriptions: '',
-    });
-    this.listCompetiton.push({
-      id: 'r7nh4ssd8js83nrhffhs2vb9',
-      category: 'Recruit 10',
-      location: '',
-      descriptions: '',
-    });
-    this.listCompetiton.push({
-      id: '629aa6e9fd31520018e406b9',
-      category: 'Recruit 11',
-      location: '',
-      descriptions: 'Đây là nhóm UI/UX',
-    });
-    this.listCompetiton.push({
-      id: '629ebee1fd31520018e58d39',
-      category: 'Recruit 12',
-      location: '',
-      descriptions: 'Đây là nhóm QC/QA',
-    });
-    this.listCompetiton.push({
-      id: '629f3db1fd31520018e5e929',
-      category: 'Recruit 13',
-      location: '',
-      descriptions: 'Đây là nhóm DBA',
-    });
-    this.listCompetiton.push({
-      id: '62a6b117e189bb43b24ca109',
-      category: 'Recruit 14',
-      location: '',
-      descriptions: '',
+    this.getListCompetiton().subscribe((res) => {
+      this.listCompetiton = res.data;
     });
   }
-
+  getListCompetiton() {
+    return this.http.get<ResponseObject>(
+      `${this.urlPath + '/api/v1/contest-news/get-all'}`
+    );
+  }
   create(scholar: scholarship) {
     this.listScholarship.unshift(scholar);
   }
@@ -469,7 +215,7 @@ export class newsService {
 
   deleteById(id: string) {
     this.listScholarship.forEach((scholarship: scholarship, idx: number) => {
-      if (scholarship.id == id) {
+      if (scholarship.code == id) {
         this.listScholarship.splice(idx, 1);
       }
     });
@@ -490,11 +236,17 @@ export class newsService {
   }
 
   public isscholarshipExist(id: string) {
-    return this.listScholarship.find((item) => item.id === id) ? true : false;
+    return this.listScholarship.find((item) => item.code === id) ? true : false;
   }
 
   public getscholarship(id: string) {
-    return this.listScholarship.find((item) => item.id === id);
+    return this.listScholarship.find((item) => item.code === id);
+  }
+  public filtercompetion(data: any) {
+    return this.http.post<ResponseObject>(
+      `${this.urlPath + '/api/v1/get-news-filter'}`,
+      data
+    );
   }
   checkVietnames(str: string) {
     str = str.toLowerCase();
