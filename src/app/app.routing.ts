@@ -12,10 +12,10 @@ const routes: Routes = [];
         redirectTo: 'homepage/page',
         pathMatch: 'full',
       },
-      // {
-      //   path: 'home',
-      //   component: AppComponent,
-      // },
+      {
+        path: 'home',
+        component: AppComponent,
+      },
       {
         path: 'homepage',
         loadChildren: () =>
