@@ -9,7 +9,7 @@ const routes: Routes = [];
     RouterModule.forRoot([
       {
         path: '',
-        redirectTo: 'homepage',
+        redirectTo: 'homepage/page',
         pathMatch: 'full',
       },
       // {
