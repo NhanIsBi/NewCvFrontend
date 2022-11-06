@@ -9,13 +9,13 @@ const routes: Routes = [];
     RouterModule.forRoot([
       {
         path: '',
-        redirectTo: 'home',
+        redirectTo: 'homepage',
         pathMatch: 'full',
       },
-      {
-        path: 'home',
-        component: AppComponent,
-      },
+      // {
+      //   path: 'home',
+      //   component: AppComponent,
+      // },
       {
         path: 'homepage',
         loadChildren: () =>
