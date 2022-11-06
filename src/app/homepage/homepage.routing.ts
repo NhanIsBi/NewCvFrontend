@@ -33,7 +33,10 @@ import { ResignComponent } from './resign/resign.component';
           },
           {
             path: 'news-competion',
-            component: NewsCompetionComponent,
+            loadChildren: () =>
+              import('./news-competion/news-competion.module').then(
+                (m) => m.NewsCompetionModule
+              ),
           },
           {
             path: 'news-scholarship',

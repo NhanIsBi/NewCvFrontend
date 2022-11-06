@@ -61,7 +61,11 @@
         TÌM THẤY {{ listScholarship.length }} KẾT QUẢ VỚI TIÊU CHÍ: CHUYÊN MỤC:
         HỌC BỔNG
       </div>
-      <div *ngFor="let data of listScholarship$ | async" class="bottom-list">
+      <div
+        (click)="detail()"
+        *ngFor="let data of listScholarship$ | async"
+        class="bottom-list"
+      >
         <div>{{ data.title }}</div>
         <div>{{ data.shortContent }}</div>
         <div>{{ data.location }}</div>

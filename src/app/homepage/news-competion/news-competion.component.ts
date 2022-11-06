@@ -103,4 +103,7 @@ export class NewsCompetionComponent implements OnInit {
     });
     // this.rawListScholarship$ = new Observable<competion[]>();
   }
+  detail() {
+    this.router.navigate(['./homepage/news-competion/create']);
+  }
 }

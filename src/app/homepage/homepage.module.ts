@@ -17,6 +17,7 @@ import { ResignComponent } from './resign/resign.component';
 import { HomepageComponent } from './homepage.component';
 import { NewsCompetionComponent } from './news-competion/news-competion.component';
 import { NewsEventComponent } from './news-event/news-event.component';
+import { NewsCompetionModule } from './news-competion/news-competion.module';
 @NgModule({
   declarations: [
     PageComponent,
@@ -25,7 +26,6 @@ import { NewsEventComponent } from './news-event/news-event.component';
     LoginComponent,
     ResignComponent,
     HomepageComponent,
-    NewsCompetionComponent,
     NewsEventComponent,
   ],
   imports: [
@@ -39,6 +39,7 @@ import { NewsEventComponent } from './news-event/news-event.component';
     CompetenceFrameModule,
     NzRateModule,
     UiCommonModule,
+    NewsCompetionModule,
   ],
 })
 export class HomepageModule {}
