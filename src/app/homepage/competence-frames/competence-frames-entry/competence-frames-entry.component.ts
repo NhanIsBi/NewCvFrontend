@@ -98,12 +98,7 @@ export class CompetenceFramesEntryComponent implements OnInit, OnDestroy {
     this.getSearchKeyword();
   }
 
-  selectCompetenceFrame(
-    value: string,
-    obj: Recruit,
-    cardRef: HTMLElement,
-    code: string
-  ) {
+  selectCompetenceFrame(value: string, obj: Recruit, cardRef: HTMLElement) {
     this.subscriptions.add(
       timer(50).subscribe(() => {
         cardRef.scrollIntoView({
