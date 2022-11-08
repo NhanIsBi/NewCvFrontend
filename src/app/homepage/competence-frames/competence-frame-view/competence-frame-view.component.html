@@ -48,13 +48,16 @@
     <div container-title>
       {{ (comFrameInfo$ | async)?.title }}
     </div>
+    <div container-title>
+      {{ comName }}
+    </div>
     <div container-body>
       <div class="content list-section">
         <div class="image"><img [src]="comFrame?.thumbnail" /></div>
         <app-section title="Mô tả">
           <div container>
             <div section-container class="competence-tags">
-              <div>{{ a }}</div>
+              <div>{{ des }}</div>
             </div>
             <!-- <textarea
               nz-input

@@ -19,7 +19,8 @@ export class CompetenceFrameViewComponent implements OnInit {
     'https://firebasestorage.googleapis.com/v0/b/newscv-3595e.appspot.com/o/cf76fb34-a0ec-45f2-9dcd-2e333754b0d1png?alt=media';
   public comFrame: Recruit | undefined = new Recruit();
   public id = '';
-  a = '';
+  des = '';
+  comName = '';
   public comFrameInfo$ = this.route.params.pipe(
     mergeMap((p) => {
       if (!this.service.isComFrameExist(p['comFrameId'])) {
@@ -41,6 +42,7 @@ export class CompetenceFrameViewComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.comName = this.service.nameCompany;
     this.comFrame = this.service.recruit;
     const result = htmlToText(this.comFrame.description, {
       singleNewLineParagraphs: true,
@@ -55,8 +57,8 @@ export class CompetenceFrameViewComponent implements OnInit {
     });
     // const appDiv: HTMLElement = document.getElementById('app') as HTMLElement;
     // appDiv.innerHTML = result;
-    this.a = result;
-    console.log(this.a);
+    this.des = result;
+    console.log(this.des);
   }
 
   public create() {

@@ -23,7 +23,6 @@ import { Recruit } from '../../model/news.model';
 export class CompetenceFramesEntryComponent implements OnInit, OnDestroy {
   @ViewChild('competenceFrameList', { static: true })
   competenceFrameList!: ElementRef<HTMLElement>;
-
   public list: Recruit[] = [];
   isDetailShown = false;
   selectedCompetenceFrame = '';
@@ -99,18 +98,23 @@ export class CompetenceFramesEntryComponent implements OnInit, OnDestroy {
     this.getSearchKeyword();
   }
 
-  selectCompetenceFrame(value: string, obj: Recruit, cardRef: HTMLElement) {
+  selectCompetenceFrame(
+    value: string,
+    obj: Recruit,
+    cardRef: HTMLElement,
+    code: string
+  ) {
     this.subscriptions.add(
       timer(50).subscribe(() => {
         cardRef.scrollIntoView({
           behavior: 'smooth',
         });
       })
-    );
+    ); //sau khi click sẽ scroll lên đầu trang
 
     this.service.recruit = obj;
     this.selectedCompetenceFrame = value;
-
+    // this.service.nameCompany = this.service.getCompanyByCode(code);
     this.router.navigate(['./homepage/competence-frames/' + value]);
   }
 

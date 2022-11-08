@@ -12,6 +12,7 @@ import { Recruit, ResponseObject } from '../../model/news.model';
 export class CompetenceFramesService {
   public listviet = listOfVietnamese;
   public conditionDup = false;
+  nameCompany = '';
   public comframe = new ComFrame();
   public listCom: ComFrame[] = [];
   public recruit = new Recruit();
@@ -45,6 +46,12 @@ export class CompetenceFramesService {
   getListRecruit() {
     return this.http.get<ResponseObject>(
       `${this.urlPath + '/api/v1/job-news/get-all'}`
+    );
+  }
+  getCompanyByCode(code: string) {
+    return this.http.post<ResponseObject>(
+      `${this.urlPath + '/api/v1/company/get-by-code/' + code}`,
+      ''
     );
   }
   create(newCom: ComFrame) {
